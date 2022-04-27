@@ -1,0 +1,21 @@
+:root {
+    /* color variables */
+    --clr-primary: #ffffff;
+    --clr-primary-hover: #9d9d9d;
+    --clr-gray100: #f0f7f8;
+    --clr-gray200: #cfd8dc;
+
+    /* border radius */
+    --radius: 0.2rem;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif; 
+  background-color: var(--clr-gray100); 
+}
