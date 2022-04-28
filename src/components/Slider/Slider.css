@@ -1,0 +1,15 @@
+#main-page-banner-wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    width: 100vw;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.main-page-banner-image {
+    position: absolute;
+    top: -15%;
+    width: 100%;
+}
