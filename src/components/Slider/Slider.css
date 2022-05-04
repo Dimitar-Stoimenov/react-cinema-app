@@ -1,15 +1,46 @@
-#main-page-banner-wrapper {
+.main-page-banner-wrapper {
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: -1;
     width: 100vw;
-    height: 75vh;
+    height: 62vh;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .main-page-banner-image {
     position: absolute;
     top: -15%;
     width: 100%;
+}
+
+.arrow {
+    position: absolute;
+    font-size: 3rem;
+    color: rgba(77, 76, 76, 0.7);
+    z-index: 1;
+    cursor: pointer;
+    user-select: none;
+}
+
+.right-arrow {
+    top: 50%;
+    right: 32px;
+}
+
+.left-arrow {
+    top: 50%;
+    left: 32px;
+}
+
+.slide {
+    opacity: 0;
+    transition-duration: 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    /* transform: scale(1.03); */
 }

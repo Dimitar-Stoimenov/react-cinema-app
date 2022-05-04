@@ -1,5 +1,5 @@
 .nav-list {
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.7);
     box-sizing: 0px 0px 10px var(--clr-gray200);
     margin: 0;
     padding: 0.8rem 0;
@@ -39,14 +39,20 @@
     width: 30vw;
 }
 
-#nav-logo {
-    margin: 2vh auto 0;
+#home-logo {
+    /* margin: auto; */
+    /* width: 100%; */
+    position: absolute;
+    block-size: 16%;
+    margin-right: auto;
+    margin-left: auto;
+    right: 0;
+    left: 0;
+    top: -2%;
 }
 
-#home-logo {
-    margin: auto;
-    width: 100%;
-    text-align: center;
+#nav-logo {
+    margin: 2vh auto 0;
 }
 
 #navLeftSide a:first-child{
