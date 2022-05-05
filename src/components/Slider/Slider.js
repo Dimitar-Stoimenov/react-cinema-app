@@ -21,11 +21,11 @@ function Slider() {
         setCurrentImgIndex(currentImgIndex === 0 ? length - 1 : currentImgIndex - 1);
     }
 
-    const nextSlide = (e) => {
+    function nextSlide(e) {
         if (e) {
             e.stopPropagation();
         }
-        
+
         setCurrentImgIndex(currentImgIndex === length - 1 ? 0 : currentImgIndex + 1)
     }
 
