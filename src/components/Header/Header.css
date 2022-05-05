@@ -52,12 +52,12 @@
 
 .nav-item:first-child{
     margin-right: auto;
-    margin-left: 28rem;
+    margin-left: 25rem;
 }
 
 .nav-item:last-child{
     margin-left: auto;
-    margin-right: 28rem;
+    margin-right: 25rem;
 }
 
 #user a:last-child, #guest a:last-child{
