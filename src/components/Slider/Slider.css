@@ -1,8 +1,7 @@
 .main-page-banner-wrapper {
-    position: absolute;
+    position: relative;
     top: 0px;
     left: 0px;
-    z-index: -1;
     width: 100vw;
     height: 62vh;
     overflow: hidden;
@@ -19,7 +18,7 @@
     position: absolute;
     font-size: 3rem;
     color: rgba(77, 76, 76, 0.7);
-    z-index: 1;
+    z-index: 10;
     cursor: pointer;
     user-select: none;
 }

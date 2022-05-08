@@ -1,14 +1,18 @@
 .nav-list {
-    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
     box-sizing: 0px 0px 10px var(--clr-gray200);
-    margin: 0;
+    z-index: 1;
     padding: 0.8rem 0;
-    border-radius: var(--radius) ;
+    border-radius: var(--radius);
     display: flex;
     justify-content: flex-end;
     align-items: center;
     max-height: 4vh;
     overflow: hidden;
+    width: 92%;
+    left: 4%;
+    top: 0.5%;
 }
 
 .nav-item {
@@ -24,46 +28,40 @@
 
 .nav-item a:hover {
     color: lightgray;
-    color: linear-gradient(90deg, rgba(153,153,153,1) 0%, rgba(173,173,173,1) 25%, rgba(213,213,213,1) 100%);
+    color: linear-gradient(90deg, rgba(153, 153, 153, 1) 0%, rgba(173, 173, 173, 1) 25%, rgba(213, 213, 213, 1) 100%);
     transition: 0.3s;
 }
 
-#home-logo-wrapper {
+.nav-logo-wrapper {    
+    position: absolute;
+    z-index: 10;
+    margin: 2vh auto;
+    right: 0;
+    left: 0;
+    top: -4.5%;
     overflow: hidden;
-    display: inline-block;
-    width: 30vw;
+    width: 28vw;
 }
 
 #home-logo {
-    /* margin: auto; */
-    /* width: 100%; */
-    position: absolute;
-    block-size: 16%;
+    margin: auto;
+    width: 100%;  
+}
+
+.nav-item:first-child {
     margin-right: auto;
+    margin-left: 23rem;
+}
+
+.nav-item:last-child {
     margin-left: auto;
-    right: 0;
-    left: 0;
-    top: -2%;
+    margin-right: 23rem;
 }
 
-#nav-logo {
-    margin: 2vh auto 0;
-}
-
-.nav-item:first-child{
-    margin-right: auto;
-    margin-left: 25rem;
-}
-
-.nav-item:last-child{
-    margin-left: auto;
-    margin-right: 25rem;
-}
-
-#user a:last-child, #guest a:last-child{
+#user a:last-child, #guest a:last-child {
     margin-left: 25px;
 }
 
-#navLeftSide a:first-child{
+#navLeftSide a:first-child {
     margin-right: 25px;
 }

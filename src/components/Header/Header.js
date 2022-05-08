@@ -3,17 +3,11 @@ import './Header.css';
 function Header() {
 
     return (
-        <nav className="navigation">
+        <>
             <ul className="nav-list">
                 <li className="nav-item" id="navLeftSide">
                     <a href="#">Program</a>
                     <a href="#">Offers</a>
-                </li>
-                {/* Home-Btn */}
-                <li className="nav-item" id="nav-logo">
-                    <a id="home-logo-wrapper" href="#">
-                        <img id="home-logo"src='./logo.png'></img>
-                    </a>
                 </li>
                 {/* Logged-in users */}
                 <li className="nav-item" id="user">
@@ -26,7 +20,10 @@ function Header() {
                     <a href="#">Register</a>
                 </li> */}
             </ul>
-        </nav>
+            <a className="nav-logo-wrapper" href="#">
+                <img id="home-logo" src='./logo.png'></img>
+            </a>
+        </>
     );
 }
 
