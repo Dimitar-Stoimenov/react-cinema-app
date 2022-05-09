@@ -9,9 +9,9 @@ const MovieList = () => {
                 <li className="movie-tab">Classic Movies</li>
                 <li className="movie-tab">All Movies</li>
             </ul>
-            <ul className='movie-card-container'>
-                
-            </ul>
+                <ul className="movie-card-container">
+
+                </ul>
         </div>
     );
 }

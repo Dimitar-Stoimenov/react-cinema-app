@@ -58,6 +58,16 @@
     margin-right: 23rem;
 }
 
+@media only screen and (max-width: 1850px) {
+    .nav-item:first-child {
+        margin-left: 20rem;
+    }
+    
+    .nav-item:last-child {
+        margin-right: 20rem;
+    }
+}
+
 #user a:last-child, #guest a:last-child {
     margin-left: 25px;
 }

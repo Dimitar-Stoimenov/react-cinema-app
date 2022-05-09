@@ -1,7 +1,12 @@
 .movie-list-container {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .movie-tabs-container {
+    border-radius: var(--radius);
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+    width: 92%;
     min-height: 41.6px;
     padding: 0.8rem 0;
     overflow: hidden;
@@ -12,10 +17,11 @@
 }
 
 .movie-tab {
-    margin: auto;
+    min-width: 86px;
     font-size: 1.15rem;
     font-weight: bold;
     cursor: pointer;
+    text-align: center;
 }
 
 .movie-tab:hover {
@@ -33,3 +39,24 @@
     margin-right: 40rem;
 }
 
+@media only screen and (max-width: 1850px) {
+    .movie-tab {
+        max-width: 86px;
+    }
+
+    .movie-tab:first-child {
+        margin-left: 36rem;
+    }
+    
+    .movie-tab:last-child {
+        margin-right: 36rem;
+    }
+}
+
+.movie-card-container {
+    border-radius: var(--radius);
+    height: 500px;
+    margin: 0 auto;
+    width: 92%;
+    background-color: orange;
+}
