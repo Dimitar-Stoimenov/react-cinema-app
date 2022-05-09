@@ -1,4 +1,5 @@
 import './MovieList.css';
+import { getAllMovies, getClassicMovies, getTopMovies } from '../../services/movieService';
 
 const MovieList = () => {
 
@@ -9,9 +10,9 @@ const MovieList = () => {
                 <li className="movie-tab">Classic Movies</li>
                 <li className="movie-tab">All Movies</li>
             </ul>
-                <ul className="movie-card-container">
+            <ul className="movie-card-container">
 
-                </ul>
+            </ul>
         </div>
     );
 }
