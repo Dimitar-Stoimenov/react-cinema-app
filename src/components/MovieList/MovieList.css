@@ -3,11 +3,13 @@
 }
 
 .movie-tabs-container {
+    padding: 0.5%;
     border-radius: var(--radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     border-bottom: 1px solid black;
     margin: 0 auto;
     width: 88%;
-    min-height: 52px;
     overflow: hidden;
     background-color: orange;
     display: flex;
@@ -16,11 +18,14 @@
 }
 
 .movie-tab {
+    border-radius: var(--radius);
+    min-height: 52px;
     background-color: orange;
     min-width: 170px;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
+    margin: 0 5px;
 }
 
 .movie-tab:hover {
@@ -54,6 +59,8 @@
 
 .movie-card-container {
     border-radius: var(--radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     margin: 0 auto;
     width: 88%;
     background-color: orange;
