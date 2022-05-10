@@ -69,8 +69,13 @@
     width: var(--content-width);
     background-color: orange;
     display: flex;
-    flex-direction: row;
-    overflow: hidden;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    overflow: hidden;
 }
+
+/* 
+.movie-card-container::after {
+    content: "";
+    width: 16.15vw;
+} */
