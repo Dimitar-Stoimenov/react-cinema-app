@@ -1,5 +1,5 @@
 .movie-list-container {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
 .movie-tabs-container {
@@ -18,9 +18,9 @@
 }
 
 .movie-tab {
-    border-radius: var(--radius);
+    border-radius: 0.4rem;
     min-height: 52px;
-    background-color: orange;
+    background-color: white;
     min-width: 170px;
     width: 170px;
     font-size: 1.2rem;
@@ -29,8 +29,10 @@
     margin: 0 5px;
 }
 
-.movie-tab:hover {
-    color: white;
+.active, .movie-tab:hover {
+    background-color: rgb(220, 220, 220);
+    color: rgba(0, 0, 0, 0.85);
+    text-shadow: -1px 1px;
     transition: 0.3s;
 }
 

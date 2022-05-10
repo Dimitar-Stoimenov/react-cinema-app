@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
+    // set active button state
 
     useEffect(() => {
         getAllMovies()
@@ -16,7 +17,7 @@ const MovieList = () => {
     return (
         <div className='movie-list-container'>
             <ul className="movie-tabs-container">
-                <button className="movie-tab">Top Rated Movies</button>
+                <button className="movie-tab active">Top Rated Movies</button>
                 <button className="movie-tab">Classic Movies</button>
                 <button className="movie-tab">All Movies</button>
             </ul>
