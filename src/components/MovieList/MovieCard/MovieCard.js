@@ -8,9 +8,11 @@ const MovieCard = ({
     return (
         <div className="card-wrapper-outer">
             <img className="poster" src={item.posterLink}></img>
-            <div className="movie-name">{item.movieName}</div>
-            <div className="movie-rating">* * * * *</div>
-            <div className="movie-tags">Tag1 Tag2</div>
+            <a className="movie-name">{item.movieName}</a>
+            <div className="extra-info-wrapper">
+                <div className="movie-rating">* * * * *</div>
+                <div className="movie-tags">Tag1 Tag2</div>
+            </div>
         </div>
     );
 }

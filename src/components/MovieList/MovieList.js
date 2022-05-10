@@ -4,25 +4,25 @@ import MovieCard from './MovieCard/MovieCard';
 import { useEffect, useState } from 'react';
 
 const MovieList = () => {
-    const [allMovies, setAllMovies] = useState([]);
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         getAllMovies()
             .then(res => {
-                setAllMovies(res);
+                setMovies(res);
             })
-    }, [])
+    }, [movies])
 
     return (
         <div className='movie-list-container'>
             <ul className="movie-tabs-container">
-                <li className="movie-tab">Top Rated Movies</li>
-                <li className="movie-tab">Classic Movies</li>
-                <li className="movie-tab">All Movies</li>
+                <button className="movie-tab">Top Rated Movies</button>
+                <button className="movie-tab">Classic Movies</button>
+                <button className="movie-tab">All Movies</button>
             </ul>
             <ul className="movie-card-container">
-                {allMovies.length > 0
-                    ? allMovies.map(x => <MovieCard key={x._id} item={x} />)
+                {movies.length > 0
+                    ? movies.map(x => <MovieCard key={x._id} item={x} />)
                     : <p>No movies available yet.</p>
                 }
             </ul>

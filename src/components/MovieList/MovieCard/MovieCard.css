@@ -1,0 +1,47 @@
+.card-wrapper-outer {
+    position: relative;
+    background-color: rgb(0, 0, 0, 0.15);
+    margin: 1.5% 3%;
+    width: 12vw;
+    border: 1px solid black;
+    border-radius: var(--radius);
+    padding: 10px;
+    text-align: center;
+}
+
+.poster {
+    position: relative;
+    border-radius: var(--radius);
+    width: 100%;
+    margin: 0 auto 3%;
+}
+
+.poster:hover {
+    cursor: pointer;
+}
+
+.movie-name {
+    font-size: 1.05rem;
+    font-weight: bold;
+}
+
+.movie-name:hover {
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.extra-info-wrapper {
+    text-align: center;
+    margin-top: 6%;
+}
+
+.movie-rating {
+    margin-left: 5px;
+    float: left;
+}
+
+.movie-tags {
+    float: right;
+    margin-right: 5px;
+}
