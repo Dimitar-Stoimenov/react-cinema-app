@@ -1,5 +1,5 @@
 .movie-list-container {
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: black;
 }
 
 .movie-tabs-container {
@@ -9,7 +9,7 @@
     border-bottom-right-radius: 0;
     border-bottom: 1px solid black;
     margin: 0 auto;
-    width: 100%;
+    width: var(--content-width);
     overflow: hidden;
     background-color: orange;
     display: flex;
@@ -32,8 +32,8 @@
 .active, .movie-tab:hover {
     background-color: rgb(220, 220, 220);
     color: rgba(0, 0, 0, 0.85);
-    text-shadow: -1px 1px;
     transition: 0.3s;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
 }
 
 .movie-tab:first-child {
@@ -67,7 +67,7 @@
     border-top-right-radius: 0;
     margin: 0 auto;
     width: var(--content-width);
-    background-color: orange;
+    background-color: rgb(220, 220, 220);
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;

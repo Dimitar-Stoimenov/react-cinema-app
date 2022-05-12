@@ -1,0 +1,7 @@
+.footer-container {
+    width: var(--content-width);
+}
+
+.li-header {
+    font-weight: bold;
+}
