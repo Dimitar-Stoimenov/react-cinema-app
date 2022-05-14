@@ -26,7 +26,7 @@
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
-    margin: 0 5px;
+    margin: 0 3px;
 }
 
 .active, .movie-tab:hover {
@@ -37,12 +37,10 @@
 }
 
 .movie-tab:first-child {
-    margin-right: auto;
     margin-left: 40rem;
 }
 
 .movie-tab:last-child {
-    margin-left: auto;
     margin-right: 40rem;
 }
 
@@ -74,8 +72,6 @@
     overflow: hidden;
 }
 
-/* 
-.movie-card-container::after {
-    content: "";
-    width: 16.15vw;
-} */
+.no-movies-yet {
+    height: 54.2vh;
+}

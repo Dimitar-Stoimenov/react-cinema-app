@@ -14,6 +14,7 @@
     border-radius: var(--radius);
     width: 100%;
     margin: 0 auto 3%;
+    height: 89%;
 }
 
 .poster:hover {

@@ -1,6 +1,7 @@
 footer {
-    border-top: 2px double black;
-    background-color: var(--clr-gray200);
+    border-top: 1px dotted white;
+    background-color: black;
+    color: white;
 }
 
 .footer-content {
@@ -23,7 +24,6 @@ footer {
 
 .footer-copyright {
     border-top: 1px dotted black;
-    background-color: var(--clr-gray200);
     margin-top: 8px;
     padding: 6px;
     text-align: center;
