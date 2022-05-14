@@ -8,7 +8,7 @@ const MovieList = () => {
     // set active button state
 
     useEffect(() => {
-        getAllMovies()
+        getTopMovies()
             .then(res => {
                 setMovies(res);
             })

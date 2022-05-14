@@ -5,18 +5,19 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer-content">
-                <ul>
+                <ul className="footer-section">
                     <li className="li-header">About Us</li>
                     <li>CiNE BEAR Ltd.</li>
                     <li>1612 Sofia, Bulgaria</li>
                     <li>phone: +359 888 123 123</li>
                     <li>email: info@cinebear.com</li>
                 </ul>
-                <ul>
+                <ul className="footer-section">
                     <li className="li-header">Follow Us:</li>
                     <li>Facebook</li>
                     <li>Instagram</li>
                     <li>Youtube</li>
+                    <li>LinkedIn</li>
                 </ul>
                 <ul></ul>
             </div>

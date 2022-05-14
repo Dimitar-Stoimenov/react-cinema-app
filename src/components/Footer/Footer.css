@@ -1,7 +1,30 @@
-.footer-container {
+footer {
+    border-top: 2px double black;
+    background-color: var(--clr-gray200);
+}
+
+.footer-content {
     width: var(--content-width);
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.footer-section {
+    margin: auto;
 }
 
 .li-header {
     font-weight: bold;
+}
+
+
+.footer-copyright {
+    border-top: 1px dotted black;
+    background-color: var(--clr-gray200);
+    margin-top: 8px;
+    padding: 6px;
+    text-align: center;
 }
