@@ -1,5 +1,6 @@
 import './Header.css';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 function Header() {
@@ -22,26 +23,26 @@ function Header() {
         <>
             <ul className="nav-list">
                 <li className="nav-item" id="navLeftSide">
-                    <a href="#">Program</a>
-                    <a href="#">Offers</a>
+                    <Link to="#">Program</Link>
+                    <Link to="#">Offers</Link>
                 </li>
                 <li className={scrollPosition >= 48 ? "nav-item scrolled-logo-wrapper" : "nav-item scrolled-logo-wrapper hidden"}>
-                    <a id="scrolled-logo" href="#">BEAR CINEMA</a>
+                    <Link id="scrolled-logo" to="/">BEAR CINEMA</Link>
                 </li>
                 {/* Logged-in users */}
                 <li className="nav-item" id="user">
-                    <a href="#">My Profile</a>
-                    <a href="#">Logout</a>
+                    <Link to="#">My Profile</Link>
+                    <Link to="#">Logout</Link>
                 </li>
                 {/* Guest users */}
                 {/* <li className="nav-item" id="guest">
-                    <a href="#">Login</a>
-                    <a href="#">Register</a>
+                    <Link to="#">Login</Link>
+                    <Link to="#">Register</Link>
                 </li> */}
             </ul>
-            <a className={scrollPosition < 48 ? "nav-logo-wrapper" : "nav-logo-wrapper hidden"} href="#">
-                <img id="home-logo" src='./logo.png'></img>
-            </a>
+            <Link className={scrollPosition < 48 ? "nav-logo-wrapper" : "nav-logo-wrapper hidden"} to="/">
+                <img id="home-logo" src='/logo.png'></img>
+            </Link>
         </>
     );
 }

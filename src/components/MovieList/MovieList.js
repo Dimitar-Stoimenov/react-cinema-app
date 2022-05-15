@@ -66,7 +66,7 @@ const MovieList = () => {
             </ul>
             <ul className="movie-card-container">
                 {movies.length > 0
-                    ? movies.map(x => <MovieCard key={x._id} item={x} />)
+                    ? movies.map(x => <MovieCard key={x._id} movie={x} />)
                     : <p className="no-movies-yet">No movies available yet.</p>
                 }
             </ul>

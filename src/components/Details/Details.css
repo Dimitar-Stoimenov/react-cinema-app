@@ -1,0 +1,10 @@
+.details-container {
+    min-height: 87vh;
+    background-color: var(--clr-gray200);
+    overflow: hidden;
+}
+
+.details-inner {
+    width: var(--content-width);
+    margin: 10vh auto 0;
+}
