@@ -39,11 +39,11 @@ const Details = () => {
                             </div>
                             <div className="item">
                                 <div className="name">Genres</div>
-                                <div className="value">{movie.genres.join(', ')}</div>
+                                <div className="value">{movie.genres}</div>
                             </div>
                             <div className="item">
                                 <div className="name">Cast</div>
-                                <div className="value">{movie.cast.join(', ')}</div>
+                                <div className="value">{movie.cast}</div>
                             </div>
                             <div className="item">
                                 <div className="name">Rating</div>
