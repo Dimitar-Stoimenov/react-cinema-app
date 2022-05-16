@@ -6,7 +6,8 @@ const MovieCard = ({
 }) => {
     const navigate = useNavigate();
     const onClickHandler = () => {
-        navigate(`/movies/${movie._id}`)
+        navigate(`/movies/${movie._id}`);
+        window.scrollTo(0, 0);
     };
 
     return (

@@ -1,10 +1,127 @@
 .details-container {
-    min-height: 87vh;
     background-color: var(--clr-gray200);
     overflow: hidden;
 }
 
 .details-inner {
-    width: var(--content-width);
-    margin: 10vh auto 0;
+    width: 55%;
+    margin: 10vh auto 3vh;
+    background-color: black;
+    min-height: 61vh;
+    /* media */
+}
+
+.details-movie-header {
+    display: flex;
+    align-items: center;
+}
+
+.details-movie-header>* {
+    margin: 3vh auto 3vh;
+    min-height: 52px;
+}
+
+.details-movie-name {
+    color: white;
+    padding: 10px 0;
+    font-size: 6vh;
+    font-weight: bold;
+}
+
+.details-tickets-button {
+    color: black;
+    background-color: orange;
+    font-size: 2.7vh;
+    border-radius: 0.4rem;
+    padding: 0 6px;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.9;
+}
+
+.details-tickets-button:hover {
+    opacity: 1;
+    color: rgb(38, 38, 38);
+    /* background-color: rgb(220, 220, 220);
+    color: rgba(0, 0, 0, 0.85);
+    transition: 0.3s;
+    box-shadow: 1px 1px 5px 0px rgba(253, 253, 253, 0.85); */
+}
+
+.details-movie-wrapper {
+    display: flex;
+    margin: 8px 1vw;
+}
+
+.details-movie-report {
+    color: white;
+    flex-basis: 30%;
+}
+
+.details-movie-description {
+    color: white;
+    flex-basis: 45%;
+}
+
+.details-movie-poster-wrapper {
+    flex-basis: 25%;
+}
+
+.details-movie-poster {
+    width: 100%;
+}
+
+.details-movie-text-top-wrapper {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin: 5vh;
+    font-size: 1.15rem;
+}
+
+.details-movie-text-top-wrapper>* {
+    margin: 0 auto;
+}
+
+.item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px;
+    padding: 0 20px;
+    line-height: 1.05;
+}
+
+.name {
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    top: 0px;
+    width: 110px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.value {
+    padding-left: 112px;
+}
+
+.details-movie-description {
+    padding: 0 1.5vw 0 1vw;
+}
+
+@media only screen and (max-width: 1850px) {
+    .details-inner {
+        width: 60%;
+        margin: 10.5vh auto 3vh;
+        min-height: 67vh;
+    }
+}
+
+@media only screen and (max-width: 1550px) {
+    .details-inner {
+        width: var(--content-width);
+        margin: 12vh auto 3vh;
+        min-height: 73vh;
+    }
 }
