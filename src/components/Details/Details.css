@@ -61,6 +61,8 @@
 .details-movie-description {
     color: white;
     flex-basis: 45%;
+    line-height: 1.1;
+    /* media */
 }
 
 .details-movie-poster-wrapper {
@@ -123,5 +125,9 @@
         width: var(--content-width);
         margin: 12vh auto 3vh;
         min-height: 73vh;
+    }
+    .details-movie-description {
+        line-height: 1.2;
+        /* media */
     }
 }
