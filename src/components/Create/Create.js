@@ -7,9 +7,9 @@ const Create = () => {
     const createHandler = (e) => {
         e.preventDefault();
 
-        let { movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, type } = Object.fromEntries(new FormData(e.currentTarget));
+        let { movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType } = Object.fromEntries(new FormData(e.currentTarget));
 
-        create(movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, type)
+        create(movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType)
             .then(movieData => {
                 console.log('created movie!')
             })
@@ -26,7 +26,7 @@ const Create = () => {
                 <input type="text" className="form-input" name="director" placeholder="director" />
                 <input type="text" className="form-input" name="premiere" placeholder="premiere" />
                 <input type="text" className="form-input" name="length" placeholder="length" />
-                <select name="type" id="type">
+                <select name="movieType" id="movieType">
                     <option value="any">Any</option>
                     <option value="family">Family</option>
                     <option value="classic">Classic</option>
