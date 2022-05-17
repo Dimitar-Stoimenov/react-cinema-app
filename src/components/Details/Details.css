@@ -23,9 +23,10 @@
 
 .details-movie-name {
     color: white;
-    padding: 10px 0;
+    padding: 10px 1vw 10px;
     font-size: 6vh;
     font-weight: bold;
+    max-width: 40vw;
 }
 
 .details-tickets-button {
