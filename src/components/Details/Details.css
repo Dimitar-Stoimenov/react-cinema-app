@@ -113,6 +113,10 @@
     padding: 0 1.5vw 0 1vw;
 }
 
+#hidden {
+    display: none;
+}
+
 @media only screen and (max-width: 1850px) {
     .details-inner {
         width: 60%;

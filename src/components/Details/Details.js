@@ -8,20 +8,19 @@ const Details = () => {
     const [movie, setMovie] = useState({});
     const { movieId } = useParams();
 
-    const average = (list) => {
-        if (typeof list !== 'undefined' && list.length > 0) {
-            let result = Number(list.reduce((prev, curr) => prev + curr) / list.length);
-            return result.toFixed(1);
-        }
-        return 'n/a';
-    }
-
     useEffect(() => {
         movieService.getOne(movieId)
             .then(movieResult => {
                 setMovie(movieResult);
             });
     }, [movieId]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+
+        let { rating, user } = Object.fromEntries(new FormData(e.currentTarget));
+        movieService.rate(movie, rating, user);
+    };
 
     return (
         <div className='details-container'>
@@ -43,7 +42,7 @@ const Details = () => {
                             </div>
                             <div className="item">
                                 <div className="name">Director</div>
-                                <div className="value">{movie.director}</div>
+                                <div className="value">{movie.director || "n/a"}</div>
                             </div>
                             <div className="item">
                                 <div className="name">Genres</div>
@@ -55,7 +54,7 @@ const Details = () => {
                             </div>
                             <div className="item">
                                 <div className="name">Rating</div>
-                                <div className="value">{average(movie.movieRating)}</div>
+                                <div className="value">{movie.movieRating?.toFixed(2) || 'n/a'}</div>
                             </div>
                             <div className="item">
                                 <div className="name">Category</div>
@@ -71,6 +70,11 @@ const Details = () => {
                     </div>
                 </div>
             </div>
+            <form id="hidden" method="PUT" onSubmit={submitHandler}>
+                <input type="number" className="rating-input" name="rating" placeholder="add rating from 1 to 5" />
+                <input type="text" className="rating-user" name="user" placeholder="add your username" />
+                <button type="submit" className="rating-button">Push rating</button>
+            </form>
         </div>
     );
 }
