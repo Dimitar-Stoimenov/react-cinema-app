@@ -6,6 +6,7 @@ import MovieList from './components/MovieList/MovieList';
 import Slider from './components/Slider/Slider';
 import Footer from './components/Footer/Footer';
 import Details from './components/Details/Details';
+import Create from './components/Create/Create';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             </>
           }
         />
+        <Route path="/movies/create" element={<Create />} />
         <Route path="/movies/:movieId" element={<Details />} />
       </Routes>
 

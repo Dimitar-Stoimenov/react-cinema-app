@@ -1,3 +1,4 @@
+/*
 const allMoviesList = [
     {
         _id: 'drstr',
@@ -84,6 +85,7 @@ const allMoviesList = [
         movieCategory: 'asd asd2 asd3',
     },
 ];
+*/
 const topMoviesList = [
     {
         _id: 'interstellar',
@@ -103,7 +105,7 @@ const topMoviesList = [
         movieName: "Inception",
         posterLink: "https://xl.movieposterdb.com/20_05/2010/1375666/xl_1375666_7699a7d7.jpg?v=2022-03-24%2022:50:16",
         movieRating: 4.9,
-        movieCategory: 'PG-13',        
+        movieCategory: 'PG-13',
     },
     {
         _id: 'jstclg',
@@ -175,8 +177,25 @@ const familyMoviesList = [
 ];
 //fix all to actual queries;
 
+const url = "http://localhost:3030/movies";
+
+export async function create(movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, type) {
+    let res = await fetch(`${url}/create`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json',
+            // 'X-Authorization': token,
+        },
+        body: JSON.stringify({ movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, type }),
+    });
+
+    return res;
+}
+
 export async function getAllMovies() {
-    return await allMoviesList;
+    let res = await fetch(`${url}/`);
+
+    return await errorCheck(res);
 }
 
 export async function getTopMovies() {
@@ -192,6 +211,26 @@ export async function getFamilyMovies() {
 }
 
 export async function getOne(id) {
-    return await topMoviesList[0];
-    // hard-coded to return interstellar
+    let res = await fetch(`${url}/${id}`);
+
+    return await errorCheck(res);
+}
+
+async function errorCheck(response) {
+    try {
+        if (response.ok === false) {
+            const error = await response.json();
+            throw new Error(error.message);
+        }
+
+        try {
+            const data = await response.json();
+            return data;
+        } catch (err) {
+            return response;
+        }
+    } catch (err) {
+        alert(err.message);
+        throw err;
+    }
 }
