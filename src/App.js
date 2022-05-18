@@ -7,6 +7,7 @@ import Slider from './components/Slider/Slider';
 import Footer from './components/Footer/Footer';
 import Details from './components/Details/Details';
 import Create from './components/Create/Create';
+import CreateHall from './components/CreateHall/CreateHall';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           }
         />
         <Route path="/movies/create" element={<Create />} />
+        <Route path="/halls/create" element={<CreateHall />} />
         <Route path="/movies/:movieId" element={<Details />} />
       </Routes>
 
