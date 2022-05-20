@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';
 import Details from './components/Details/Details';
 import Create from './components/Create/Create';
 import CreateHall from './components/CreateHall/CreateHall';
+import CreateProjection from './components/CreateProjection/CreateProjection';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         />
         <Route path="/movies/create" element={<Create />} />
         <Route path="/halls/create" element={<CreateHall />} />
+        <Route path="/projections/create" element={<CreateProjection />} />
         <Route path="/movies/:movieId" element={<Details />} />
       </Routes>
 

@@ -1,4 +1,6 @@
+import { errorCheck } from '../utils/utils';
 const url = "http://localhost:3030/halls";
+
 
 export async function create(hallName, row1, row2, row3, row4, row5, row6, row7, row8, row9, row10) {
     let res = await fetch(`${url}/create`, {
@@ -11,4 +13,10 @@ export async function create(hallName, row1, row2, row3, row4, row5, row6, row7,
     });
 
     return res;
+}
+
+export async function getAllHalls() {
+    let res = await fetch(`${url}/`);
+
+    return await errorCheck(res);
 }

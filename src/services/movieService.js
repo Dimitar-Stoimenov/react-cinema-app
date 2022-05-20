@@ -1,4 +1,6 @@
+import { errorCheck } from '../utils/utils';
 const url = "http://localhost:3030/movies";
+
 
 export async function create(movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType, movieRating) {
     let res = await fetch(`${url}/create`, {
@@ -20,7 +22,7 @@ export async function rate(movie, rating, user) {
             "Content-movieType": 'application/json',
             // 'X-Authorization': token,
         },
-        body: JSON.stringify({movie, rating, user})
+        body: JSON.stringify({ movie, rating, user })
     });
 
     return await errorCheck(res);
@@ -54,23 +56,4 @@ export async function getOne(id) {
     let res = await fetch(`${url}/${id}`);
 
     return await errorCheck(res);
-}
-
-async function errorCheck(response) {
-    try {
-        if (response.ok === false) {
-            const error = await response.json();
-            throw new Error(error.message);
-        }
-
-        try {
-            const data = await response.json();
-            return data;
-        } catch (err) {
-            return response;
-        }
-    } catch (err) {
-        alert(err.message);
-        throw err;
-    }
 }

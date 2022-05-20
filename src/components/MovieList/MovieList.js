@@ -7,6 +7,8 @@ const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [activeMovieTab, setActiveMovieTab] = useState([0]);
 
+    //fix to not query every click - add 4 more states and just replace
+
     useEffect(() => {
         clickTopMovies();
     }, [])
