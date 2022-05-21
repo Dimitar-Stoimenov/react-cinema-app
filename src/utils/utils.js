@@ -20,15 +20,15 @@ export async function errorCheck(response) {
 export function standartizeDate(dateString) {
     let splitDate;
 
-    if (dateString[[1] === "/"] || dateString[[1] === "-"] || dateString[[1] === "."]) {
+    if (dateString[1] === "/" || dateString[1] === "-" || dateString[1] === ".") {
         dateString = "0" + dateString;
     }
 
-    if (dateString[[4] === "/"] || dateString[[4] === "-"] || dateString[[4] === "."]) {
+    if (dateString[4] === "/" || dateString[4] === "-" || dateString[4] === ".") {
         dateString = dateString.split("").splice(3, 0, "0").join('');
     }
 
-    if (dateString[[2] === "/"]) {
+    if (dateString[2] === "/") {
         splitDate = dateString.split('/');
     } else if (dateString[2] === "-") {
         splitDate = dateString.split('-');
