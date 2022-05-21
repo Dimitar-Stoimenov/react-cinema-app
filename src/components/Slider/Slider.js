@@ -14,7 +14,7 @@ function Slider() {
     useEffect(() => {
         const timer = setInterval(() => {
             nextSlide();
-        }, 13000);
+        }, 10000);
         return () => {
             clearInterval(timer);
         };

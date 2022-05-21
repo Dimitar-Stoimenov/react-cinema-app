@@ -1,0 +1,13 @@
+.program-container {
+    background-color: red;
+    height: 80vh;
+}
+
+.program-content {
+    width: var(--content-width);
+    margin: 0 auto;
+
+    padding-top: 10vh;
+    background-color: gray;
+    height: 50vh;
+}

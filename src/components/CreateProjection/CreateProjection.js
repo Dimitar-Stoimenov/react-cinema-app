@@ -43,8 +43,8 @@ const CreateProjection = () => {
                     <option value="no-value" disabled hidden >Select hall...</option>
                     {halls.map(hall => <option value={hall._id} key={hall._id}>{hall.hallName}</option>)}
                 </select>
-                <input type="text" className="form-input" name="date" placeholder="date" />
-                <input type="text" className="form-input" name="hour" placeholder="hour" />
+                <input type="text" className="form-input" name="date" placeholder="date - example 30/12/2022" />
+                <input type="text" className="form-input" name="hour" placeholder="hour - example 19:00" />
                 <button type="submit" className="submit-button">Create Projection</button>
             </form>
         </div>

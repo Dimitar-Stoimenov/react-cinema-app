@@ -1,15 +1,16 @@
 import './Header.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { parseDate } from '../../utils/utils';
 
 function Header() {
-
     const [scrollPosition, setScrollPosition] = useState(0);
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(position);
     };
+
+    const today = parseDate(new Date());
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -23,7 +24,7 @@ function Header() {
         <>
             <ul className="nav-list">
                 <li className="nav-item" id="navLeftSide">
-                    <Link to="#">Program</Link>
+                    <Link to={"/projections/program/" + today}>Program</Link>
                     <Link to="#">Offers</Link>
                 </li>
                 <li className={scrollPosition >= 48 ? "nav-item scrolled-logo-wrapper" : "nav-item scrolled-logo-wrapper hidden"}>
