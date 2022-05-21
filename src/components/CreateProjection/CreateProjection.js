@@ -3,8 +3,7 @@ import "./CreateProjection.css";
 
 import { getAllHalls } from '../../services/hallService';
 import { getAllMovies } from '../../services/movieService';
-
-// import { create } from '../../services/projectionsService';
+import { create } from '../../services/projectionService';
 
 const CreateProjection = () => {
     const [halls, setHalls] = useState([]);
@@ -25,12 +24,12 @@ const CreateProjection = () => {
     const createHandler = (e) => {
         e.preventDefault();
 
-        // let { hallName, row1, row2, row3, row4, row5, row6, row7, row8, row9, row10 } = Object.fromEntries(new FormData(e.currentTarget));
+        let { movieId, hallId, date, hour } = Object.fromEntries(new FormData(e.currentTarget));
 
-        // create(hallName, row1, row2, row3, row4, row5, row6, row7, row8, row9, row10)
-        //     .then(hallData => {
-        //         console.log('created hall!')
-        //     })
+        create(movieId, hallId, date, hour)
+            .then(projectionData => {
+                console.log('created projection!')
+            })
     }
 
     return (
@@ -46,7 +45,7 @@ const CreateProjection = () => {
                 </select>
                 <input type="text" className="form-input" name="date" placeholder="date" />
                 <input type="text" className="form-input" name="hour" placeholder="hour" />
-                <button type="submit" className="submit-button">Create Hall</button>
+                <button type="submit" className="submit-button">Create Projection</button>
             </form>
         </div>
     );

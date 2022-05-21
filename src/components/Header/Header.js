@@ -41,7 +41,7 @@ function Header() {
                 </li> */}
             </ul>
             <Link className={scrollPosition < 48 ? "nav-logo-wrapper" : "nav-logo-wrapper hidden"} to="/">
-                <img id="home-logo" src='/logo.png'></img>
+                <img id="home-logo" src='/logo.png' alt='logo'></img>
             </Link>
         </>
     );
