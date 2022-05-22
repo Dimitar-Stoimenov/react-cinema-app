@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import { getProjections } from "../../services/projectionService";
-import { parseDate } from '../../utils/utils';
+import { parseDate, standartizeDate } from '../../utils/utils';
 import "./Program.css";
 
 const Program = () => {
     const { date: dateString } = useParams();
     const [projections, setProjections] = useState([]);
+    const [activeDayTab, setActiveDayTab] = useState(0);
 
-    const activeDayTab = 0;
     const today = new Date();
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -44,7 +44,7 @@ const Program = () => {
             parsedDate: parseDate(incrementDays(5), "no-year"),
             dayOfWeek: weekday[incrementDays(5).getDay()],
         },
-        
+
         day6: {
             date: incrementDays(6),
             parsedDate: parseDate(incrementDays(6), "no-year"),
@@ -57,12 +57,23 @@ const Program = () => {
         return new Date(dateCopy.setDate(dateCopy.getDate() + days));
     }
 
-    useEffect(() => {
-        getProjections(dateString)
+    function clickDay(date) {
+        const newurl = window.location.protocol + "//" + window.location.host + "/projections/program" + "/" + parseDate(date);
+        window.history.pushState({ path: newurl }, '', newurl);
+
+        let dateStr = newurl.slice(-10);
+
+        getProjections(dateStr)
             .then(res => {
                 setProjections(res);
             })
-    }, []);
+    }
+
+    useEffect(() => {
+        const date = new Date(standartizeDate(dateString));
+
+        clickDay(date);
+    }, [dateString]);
 
     return (
         <div className="program-container">
@@ -71,6 +82,10 @@ const Program = () => {
             </div>
             <ul className="day-tabs-container">
                 <button className={activeDayTab === 0 ? 'day-tab active' : 'day-tab'}
+                    onClick={() => {
+                        clickDay(parsedDays.day0.date);
+                        setActiveDayTab(0);
+                    }}
                     key={0}
                 >
                     <div className="tab-day">Today</div>
@@ -78,35 +93,59 @@ const Program = () => {
                 </button>
                 <button className={activeDayTab === 1 ? 'day-tab active' : 'day-tab'}
                     key={1}
+                    onClick={() => {
+                        clickDay(parsedDays.day1.date);
+                        setActiveDayTab(1);
+                    }}
                 >
                     <div className="tab-day">{parsedDays.day1.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day1.parsedDate}</div>
                 </button>
                 <button className={activeDayTab === 2 ? 'day-tab active' : 'day-tab'}
+                    onClick={() => {
+                        clickDay(parsedDays.day2.date);
+                        setActiveDayTab(2);
+                    }}
                     key={2}
                 >
                     <div className="tab-day">{parsedDays.day2.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day2.parsedDate}</div>
                 </button>
                 <button className={activeDayTab === 3 ? 'day-tab active' : 'day-tab'}
+                    onClick={() => {
+                        clickDay(parsedDays.day3.date);
+                        setActiveDayTab(3);
+                    }}
                     key={3}
                 >
                     <div className="tab-day">{parsedDays.day3.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day3.parsedDate}</div>
                 </button>
                 <button className={activeDayTab === 4 ? 'day-tab active' : 'day-tab'}
+                    onClick={() => {
+                        clickDay(parsedDays.day4.date);
+                        setActiveDayTab(4);
+                    }}
                     key={4}
                 >
                     <div className="tab-day">{parsedDays.day4.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day4.parsedDate}</div>
                 </button>
                 <button className={activeDayTab === 5 ? 'day-tab active' : 'day-tab'}
+                    onClick={() => {
+                        clickDay(parsedDays.day5.date);
+                        setActiveDayTab(5);
+                    }}
                     key={5}
                 >
                     <div className="tab-day">{parsedDays.day5.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day5.parsedDate}</div>
                 </button>
                 <button className={activeDayTab === 6 ? 'day-tab active' : 'day-tab'}
+                    onClick={() => {
+                        clickDay(parsedDays.day6.date);
+                        setActiveDayTab(6);
+                    }}
                     key={6}
                 >
                     <div className="tab-day">{parsedDays.day6.dayOfWeek}</div>
