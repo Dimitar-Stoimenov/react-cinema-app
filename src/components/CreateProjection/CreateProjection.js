@@ -24,9 +24,9 @@ const CreateProjection = () => {
     const createHandler = (e) => {
         e.preventDefault();
 
-        let { movieId, hallId, date, hour } = Object.fromEntries(new FormData(e.currentTarget));
+        let { movieId, hallId, date, hour, regularPrice, studentsPrice } = Object.fromEntries(new FormData(e.currentTarget));
 
-        create(movieId, hallId, date, hour)
+        create(movieId, hallId, date, hour, regularPrice, studentsPrice)
             .then(projectionData => {
                 console.log('created projection!')
             })
@@ -45,6 +45,8 @@ const CreateProjection = () => {
                 </select>
                 <input type="text" className="form-input" name="date" placeholder="date - example 30/12/2022" />
                 <input type="text" className="form-input" name="hour" placeholder="hour - example 19:00" />
+                <input type="number" className="form-input" name="regularPrice" placeholder="regular price" />
+                <input type="number" className="form-input" name="studentsPrice" placeholder="students price" />
                 <button type="submit" className="submit-button">Create Projection</button>
             </form>
         </div>

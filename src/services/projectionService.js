@@ -2,7 +2,7 @@ import { errorCheck, standartizeDate, standartizeHour } from '../utils/utils';
 const url = "http://localhost:3030/projections";
 
 
-export async function create(movieId, hallId, date, hour) {
+export async function create(movieId, hallId, date, hour, regularPrice, studentsPrice) {
     date = standartizeDate(date);
     hour = standartizeHour(hour);
 
@@ -12,7 +12,7 @@ export async function create(movieId, hallId, date, hour) {
             "Content-Type": 'application/json',
             // 'X-Authorization': token,
         },
-        body: JSON.stringify({ movieId, hallId, date, hour }),
+        body: JSON.stringify({ movieId, hallId, date, hour, regularPrice, studentsPrice }),
     });
 
     return res;

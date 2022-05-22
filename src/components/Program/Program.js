@@ -17,6 +17,12 @@ const Program = () => {
     return (
         <div className="program-container">
             <div className="program-content">
+                <div className="program-movie-card">
+                    {projections.map(x => {
+                        return <div>hi</div>
+                        // sort by halls?
+                    })}
+                </div>
             </div>
         </div>
     );
