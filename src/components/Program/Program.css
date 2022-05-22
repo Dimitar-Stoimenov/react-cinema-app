@@ -1,13 +1,75 @@
 .program-container {
-    background-color: red;
-    height: 80vh;
+    /* background-color: white; */
+    min-height: 71vh;
+}
+
+.program-header {
+    margin: 12vh;
+    text-align: center;
+}
+
+.day-tabs-container {
+    padding: 0.5%;
+    border-radius: var(--radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+    background-color: orange;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.day-tab {
+    border-radius: 0.4rem;
+    min-height: 52px;
+    background-color: white;
+    min-width: 170px;
+    width: 170px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.active, .day-tab:hover {
+    background-color: rgb(220, 220, 220);
+    color: rgba(0, 0, 0, 0.85);
+    transition: 0.3s;
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.85);
+}
+
+.day-tab:first-child {
+    margin-left: 35rem;
+}
+
+.day-tab:last-child {
+    margin-right: 35rem;
+}
+
+@media only screen and (max-width: 1850px) {
+    .day-tab {
+        min-width: 150px;
+        width: 150px;
+        margin: 0 1px;
+    }
+
+    .day-tab:first-child {
+        margin-left: 36rem;
+    }
+
+    .day-tab:last-child {
+        margin-right: 36rem;
+    }
 }
 
 .program-content {
     width: var(--content-width);
     margin: 0 auto;
 
-    padding-top: 10vh;
-    background-color: gray;
+    background-color: var(--clr-gray200);
     height: 50vh;
 }

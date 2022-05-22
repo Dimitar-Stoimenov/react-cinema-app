@@ -48,10 +48,14 @@ export function standartizeHour(hourString) {
     return result;
 }
 
-export function parseDate(date) {
+export function parseDate(date, noYear) {
     let year = date.getFullYear();
     let month = (date.getMonth() + 1).toString().padStart(2, "0");
     let day = date.getDate().toString().padStart(2, "0");
+
+    if (noYear == "no-year") {
+        return `${day}/${month}`;
+    }
 
     return `${day}-${month}-${year}`;
 }
