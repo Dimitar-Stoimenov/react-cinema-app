@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import { getProjections } from "../../services/projectionService";
 import { parseDate, standartizeDate } from '../../utils/utils';
 import "./Program.css";
+import ProgramSortByMovie from "./ProgramSortByMovie/ProgramSortByMovie";
 
 const Program = () => {
     const { date: dateString } = useParams();
@@ -12,7 +13,6 @@ const Program = () => {
 
     const today = new Date();
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
     const parsedDays = {
         day0: {
             date: today,
@@ -52,13 +52,19 @@ const Program = () => {
         },
     }
 
+    useEffect(() => {
+        const date = new Date(standartizeDate(dateString));
+
+        clickDay(date);
+    }, []);
+
     function incrementDays(days) {
         let dateCopy = new Date(today.getTime());
         return new Date(dateCopy.setDate(dateCopy.getDate() + days));
     }
 
     function clickDay(date) {
-        const newurl = window.location.protocol + "//" + window.location.host + "/projections/program" + "/" + parseDate(date);
+        const newurl = window.location.protocol + "//" + window.location.host + "/projections/program/" + parseDate(date);
         window.history.pushState({ path: newurl }, '', newurl);
 
         let dateStr = newurl.slice(-10);
@@ -69,19 +75,15 @@ const Program = () => {
             })
     }
 
-    useEffect(() => {
-        const date = new Date(standartizeDate(dateString));
-
-        clickDay(date);
-    }, [dateString]);
-
     return (
         <div className="program-container">
             <div className="program-header">
-                PROGRAM
+                <div className="program-title">
+                    PROGRAM FOR {dateString.slice(0, 5).replace("-", "/")}
+                </div>
             </div>
             <ul className="day-tabs-container">
-                <button className={activeDayTab === 0 ? 'day-tab active' : 'day-tab'}
+                <Link to={"/projections/program/" + parseDate(parsedDays.day0.date)} className={activeDayTab === 0 ? 'day-tab active' : 'day-tab'}
                     onClick={() => {
                         clickDay(parsedDays.day0.date);
                         setActiveDayTab(0);
@@ -90,8 +92,8 @@ const Program = () => {
                 >
                     <div className="tab-day">Today</div>
                     <div className="tab-date">{parsedDays.day0.parsedDate}</div>
-                </button>
-                <button className={activeDayTab === 1 ? 'day-tab active' : 'day-tab'}
+                </Link>
+                <Link to={"/projections/program/" + parseDate(parsedDays.day1.date)} className={activeDayTab === 1 ? 'day-tab active' : 'day-tab'}
                     key={1}
                     onClick={() => {
                         clickDay(parsedDays.day1.date);
@@ -100,8 +102,8 @@ const Program = () => {
                 >
                     <div className="tab-day">{parsedDays.day1.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day1.parsedDate}</div>
-                </button>
-                <button className={activeDayTab === 2 ? 'day-tab active' : 'day-tab'}
+                </Link>
+                <Link to={"/projections/program/" + parseDate(parsedDays.day2.date)} className={activeDayTab === 2 ? 'day-tab active' : 'day-tab'}
                     onClick={() => {
                         clickDay(parsedDays.day2.date);
                         setActiveDayTab(2);
@@ -110,8 +112,8 @@ const Program = () => {
                 >
                     <div className="tab-day">{parsedDays.day2.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day2.parsedDate}</div>
-                </button>
-                <button className={activeDayTab === 3 ? 'day-tab active' : 'day-tab'}
+                </Link>
+                <Link to={"/projections/program/" + parseDate(parsedDays.day3.date)} className={activeDayTab === 3 ? 'day-tab active' : 'day-tab'}
                     onClick={() => {
                         clickDay(parsedDays.day3.date);
                         setActiveDayTab(3);
@@ -120,8 +122,8 @@ const Program = () => {
                 >
                     <div className="tab-day">{parsedDays.day3.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day3.parsedDate}</div>
-                </button>
-                <button className={activeDayTab === 4 ? 'day-tab active' : 'day-tab'}
+                </Link>
+                <Link to={"/projections/program/" + parseDate(parsedDays.day4.date)} className={activeDayTab === 4 ? 'day-tab active' : 'day-tab'}
                     onClick={() => {
                         clickDay(parsedDays.day4.date);
                         setActiveDayTab(4);
@@ -130,8 +132,8 @@ const Program = () => {
                 >
                     <div className="tab-day">{parsedDays.day4.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day4.parsedDate}</div>
-                </button>
-                <button className={activeDayTab === 5 ? 'day-tab active' : 'day-tab'}
+                </Link>
+                <Link to={"/projections/program/" + parseDate(parsedDays.day5.date)} className={activeDayTab === 5 ? 'day-tab active' : 'day-tab'}
                     onClick={() => {
                         clickDay(parsedDays.day5.date);
                         setActiveDayTab(5);
@@ -140,8 +142,8 @@ const Program = () => {
                 >
                     <div className="tab-day">{parsedDays.day5.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day5.parsedDate}</div>
-                </button>
-                <button className={activeDayTab === 6 ? 'day-tab active' : 'day-tab'}
+                </Link>
+                <Link to={"/projections/program/" + parseDate(parsedDays.day6.date)} className={activeDayTab === 6 ? 'day-tab active' : 'day-tab'}
                     onClick={() => {
                         clickDay(parsedDays.day6.date);
                         setActiveDayTab(6);
@@ -150,14 +152,11 @@ const Program = () => {
                 >
                     <div className="tab-day">{parsedDays.day6.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day6.parsedDate}</div>
-                </button>
+                </Link>
             </ul>
             <div className="program-content">
                 <div className="program-movie-card">
-                    {/* {projections.map(x => {
-                        return <div>hi</div>
-                        // sort by halls?
-                    })} */}
+                    <ProgramSortByMovie projections={projections} />
                 </div>
             </div>
         </div>

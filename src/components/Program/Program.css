@@ -1,11 +1,18 @@
 .program-container {
     /* background-color: white; */
-    min-height: 71vh;
+    min-height: 75vh;
 }
 
 .program-header {
+    position: relative;
     margin: 12vh;
-    text-align: center;
+}
+
+.program-title {
+    position: absolute;
+    display: block;
+    bottom: 5px;
+    left: 50%; /* fix calc? */
 }
 
 .day-tabs-container {
@@ -25,14 +32,22 @@
 
 .day-tab {
     border-radius: 0.4rem;
+    border: 2px solid black;
     min-height: 52px;
     background-color: white;
+    color: black;
     min-width: 170px;
     width: 170px;
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     margin: 0 5px;
+
+    display: flex;
+    flex-direction: column;
+    text-decoration:none;
+    text-align:center;
+    justify-content: center;
 }
 
 .active, .day-tab:hover {
@@ -48,6 +63,10 @@
 
 .day-tab:last-child {
     margin-right: 35rem;
+}
+
+.tab-day {
+    margin-bottom: 1px;
 }
 
 @media only screen and (max-width: 1850px) {
