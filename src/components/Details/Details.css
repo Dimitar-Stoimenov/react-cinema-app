@@ -22,7 +22,7 @@
 }
 
 .details-movie-name {
-    color: white;
+    color: var(--clr-primary);
     padding: 10px 1vw 10px;
     font-size: 6vh;
     font-weight: bold;
@@ -55,12 +55,12 @@
 }
 
 .details-movie-report {
-    color: white;
+    color: var(--clr-primary);
     flex-basis: 30%;
 }
 
 .details-movie-description {
-    color: white;
+    color: var(--clr-primary);
     flex-basis: 45%;
     line-height: 1.1;
     /* text-align: justify; */

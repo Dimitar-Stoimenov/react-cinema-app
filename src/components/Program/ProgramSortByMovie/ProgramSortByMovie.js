@@ -1,21 +1,21 @@
 import ProgramMovieCard from '../ProgramMovieCard/ProgramMovieCard';
 
 const ProgramSortByMovie = ({ projections }) => {
+    let moviesObj = {};
 
-    console.log(projections)
+    for (const projection of projections) {
+        if (!moviesObj[projection.movieId._id]) {
+            moviesObj[projection.movieId._id] = [projection];
+        } else {
+            moviesObj[projection.movieId._id].push(projection);
+        }
+    }
 
-    let movies = [
-        {
-            _id: 1
-        },
-        {
-            _id: 2
-        },
-    ];
+    let movies = Object.entries(moviesObj);
 
     return (
         <>
-            {movies.map(movie => <ProgramMovieCard key={movie._id} movie />)}
+            {movies.map(([movieId, projectionsArray]) => <ProgramMovieCard key={movieId} movieId={movieId} projectionsArray={projectionsArray} />)}
         </>
     );
 }

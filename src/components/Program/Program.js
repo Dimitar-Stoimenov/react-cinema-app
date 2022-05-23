@@ -155,7 +155,7 @@ const Program = () => {
                 </Link>
             </ul>
             <div className="program-content">
-                <div className="program-movie-card">
+                <div className="program-movie-card-wrapper">
                     <ProgramSortByMovie projections={projections} />
                 </div>
             </div>

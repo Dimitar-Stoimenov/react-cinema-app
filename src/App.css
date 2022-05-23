@@ -13,16 +13,18 @@
 
   /* content width */
   --content-width: 70%;
+
+  min-height: 100vh;
 }
 
 *,
 *:before,
 *:after {
   box-sizing: border-box;
-
 }
 
-body {
+html, body {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   background-color: var(--clr-gray100);
+  height: 100%;
 }

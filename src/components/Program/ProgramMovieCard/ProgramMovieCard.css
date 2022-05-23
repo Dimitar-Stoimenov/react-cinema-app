@@ -1,0 +1,28 @@
+.program-movie-card {
+    height: 30vh;
+
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 100%;
+    border: 1px solid black;
+}
+
+.program-movie-tab {
+    display: flex;
+}
+
+.program-movie-poster-wrapper {
+    flex-basis: 15%;
+    height: 28vh;
+    padding: 1vh 0.5vw;
+
+    overflow: hidden;
+}
+
+.program-movie-poster {
+    width: 100%;
+}
+
+.program-movie-info {
+    flex-basis: 80%;
+}

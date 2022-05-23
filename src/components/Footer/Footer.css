@@ -1,7 +1,7 @@
 footer {
-    border-top: 1px dotted white;
+    border-top: 1px dotted var(--clr-primary);
     background-color: black;
-    color: white;
+    color: var(--clr-primary); 
 }
 
 .footer-content {

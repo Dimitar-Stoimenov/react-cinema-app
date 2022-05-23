@@ -20,7 +20,7 @@
 .movie-tab {
     border-radius: 0.4rem;
     min-height: 52px;
-    background-color: white;
+    background-color: var(--clr-primary);
     min-width: 170px;
     width: 170px;
     font-size: 1.2rem;
