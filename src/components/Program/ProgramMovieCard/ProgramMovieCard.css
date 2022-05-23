@@ -1,5 +1,5 @@
 .program-movie-card {
-    height: 30vh;
+    height: 29vh;
 
     position: relative;
     background-color: rgba(255, 255, 255, 0.15);
@@ -12,10 +12,10 @@
 }
 
 .program-movie-poster-wrapper {
-    flex-basis: 15%;
-    height: 28vh;
-    padding: 1vh 0.5vw;
-
+    flex-basis: 16%;
+    height: 27vh;
+    margin: 1vh 1vh;
+    
     overflow: hidden;
 }
 
