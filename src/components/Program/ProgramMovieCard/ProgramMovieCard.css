@@ -15,12 +15,17 @@
     flex-basis: 16%;
     height: 27vh;
     margin: 1vh 1vh;
-    
+
     overflow: hidden;
 }
 
 .program-movie-poster {
     width: 100%;
+    user-select: none;
+}
+
+.program-movie-poster:hover {
+    cursor: pointer;
 }
 
 .program-movie-info {
