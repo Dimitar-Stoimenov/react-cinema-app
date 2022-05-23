@@ -7,7 +7,7 @@
     width: 55%;
     margin: 10vh auto 3vh;
     background-color: black;
-    min-height: 61vh;
+    min-height: 73.6vh;
     /* media */
 }
 
@@ -37,11 +37,11 @@
     padding: 0 6px;
     cursor: pointer;
     user-select: none;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .details-tickets-button:hover {
-    opacity: 1;
+    opacity: 0.9;
     color: rgb(38, 38, 38);
     /* background-color: rgb(220, 220, 220);
     color: rgba(0, 0, 0, 0.85);
@@ -112,6 +112,7 @@
 
 .details-movie-description {
     padding: 0 1.5vw 0 1vw;
+    /* media */
 }
 
 #hidden {
@@ -122,19 +123,18 @@
     .details-inner {
         width: 60%;
         margin: 10.5vh auto 3vh;
-        min-height: 67vh;
+        min-height: 72vh;
     }
 }
 
 @media only screen and (max-width: 1550px) {
     .details-inner {
         width: var(--content-width);
-        margin: 12vh auto 3vh;
-        min-height: 73vh;
+        margin: 10.5vh auto 2vh;
+        min-height: 69vh;
     }
 
     .details-movie-description {
         line-height: 1.2;
-        /* media */
     }
 }
