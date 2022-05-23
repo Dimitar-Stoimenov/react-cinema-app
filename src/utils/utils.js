@@ -41,13 +41,6 @@ export function standartizeDate(dateString) {
     return [splitDate[2], splitDate[1], splitDate[0]].join('/');
 }
 
-export function standartizeHour(hourString) {
-    let splitHour = hourString.split(':');
-    let result = Number(splitHour[0] + splitHour[1]);
-
-    return result;
-}
-
 export function parseDate(date, noYear) {
     let year = date.getFullYear();
     let month = (date.getMonth() + 1).toString().padStart(2, "0");
@@ -58,4 +51,16 @@ export function parseDate(date, noYear) {
     }
 
     return `${day}-${month}-${year}`;
+}
+
+export function standartizeHour(hourString) {
+    let splitHour = hourString.split(':');
+    let result = Number(splitHour[0] + splitHour[1]);
+
+    return result;
+}
+
+export function parseHour(hourNumber) {
+    let string = hourNumber.toString();
+    return string.slice(0, 2) + ":" + string.slice(2);
 }

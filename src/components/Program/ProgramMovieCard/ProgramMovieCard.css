@@ -9,12 +9,13 @@
 
 .program-movie-tab {
     display: flex;
+    padding: 1vh;
 }
 
 .program-movie-poster-wrapper {
     flex-basis: 16%;
     height: 27vh;
-    margin: 1vh 1vh;
+    /* margin: 1vh 1vh; */
 
     overflow: hidden;
 }
@@ -29,5 +30,48 @@
 }
 
 .program-movie-info {
+    margin: 0 2vw;
     flex-basis: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.program-movie-info>div {
+    min-height: 50px;
+    border: 1px solid black;
+}
+
+.program-movie-header {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.program-movie-header>div {
+    border: 1px solid black;
+}
+
+.program-movie-title-wrapper {
+    flex: 4;
+}
+
+.program-movie-title {
+    display: inline-block;
+}
+
+.program-movie-title:hover {
+    color:white;
+    cursor: pointer;
+}
+
+.program-movie-category {
+    flex: 1;
+}
+
+.program-movie-rating {
+    flex: 1;
+}
+
+.program-movie-projections-grid {
+    flex: 1;
 }

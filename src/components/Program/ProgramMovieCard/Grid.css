@@ -1,0 +1,16 @@
+.program-movie-projections-grid {
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+    
+.div0 { grid-area: 2 / 1 / 5 / 5; }
+.div1 { grid-area: 2 / 6 / 5 / 10; }
+.div2 { grid-area: 2 / 11 / 5 / 15; }
+.div3 { grid-area: 2 / 16 / 5 / 20; }
+.div4 { grid-area: 6 / 1 / 9 / 5; }
+.div5 { grid-area: 6 / 6 / 9 / 10; }
+.div6 { grid-area: 6 / 11 / 9 / 15; }
+.div7 { grid-area: 6 / 16 / 9 / 20; }
