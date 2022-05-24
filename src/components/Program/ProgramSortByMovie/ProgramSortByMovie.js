@@ -11,7 +11,7 @@ const ProgramSortByMovie = ({ projections }) => {
         }
     }
 
-    let movies = Object.entries(moviesObj);
+    let movies = Object.entries(moviesObj).sort((a, b) => b[1].length - a[1].length);
 
     return (
         <>

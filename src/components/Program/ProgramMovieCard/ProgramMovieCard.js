@@ -1,12 +1,21 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
+import { parseHour } from '../../../utils/utils';
 
 import './ProgramMovieCard.css';
 import './Grid.css';
 
-import { parseHour } from '../../../utils/utils';
-
 const ProgramMovieCard = ({ movieId, projectionsArray }) => {
     const navigate = useNavigate();
+    const [visible, setVisible] = useState(false);
+    const categoriesExplained = {
+        "G": "General Audiences, All Ages Admitted.",
+        "PG": "Parental Guidance Suggested, Some Material May Not Be Suitable for Children.",
+        "PG-13": "Parents Strongly Cautioned, Some Material May Be Inappropriate for Children Under 13.",
+        "R": "Restricted, Children Under 17 Require Accompanying Parent or Adult Guardian.",
+        "NC-17": "No One 17 and Under Admitted."
+    }
 
     const onMovieClickHandler = () => {
         navigate(`/movies/${movieId}`);
@@ -34,18 +43,22 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
                         <div className="program-movie-title-wrapper">
                             <div className="program-movie-title" onClick={onMovieClickHandler}>{projectionsArray[0].movieId.movieName}</div>
                         </div>
-                        <div className="program-movie-category">{projectionsArray[0].movieId.movieCategory}</div>
+
+                        <div className="program-movie-category">
+                            <div className="program-movie-category-content" onMouseEnter={() => setVisible(true)} onMouseLeave={() => setTimeout(() => setVisible(false), 300)}>{projectionsArray[0].movieId.movieCategory}</div>
+                            {visible && <div className="program-movie-category-hover-hidden" >{categoriesExplained[projectionsArray[0].movieId.movieCategory]}</div>}
+                        </div>
+
                         <div className="program-movie-rating">*****</div>
                     </div>
                     <div className="program-movie-projections-grid">
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
-                            console.log(projection);
                             return <button key={projection._id} className={"div" + index}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                         })}
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

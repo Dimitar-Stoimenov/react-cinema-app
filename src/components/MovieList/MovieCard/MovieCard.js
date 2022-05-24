@@ -16,7 +16,7 @@ const MovieCard = ({
             <div className="movie-name" onClick={onClickHandler}>{movie.movieName}</div>
             <div className="extra-info-wrapper">
                 <div className="movie-rating">* * * * *</div>
-                <div className="movie-tags">Tag1 Tag2</div>
+                <div className="movie-tags">{movie.movieCategory}</div>
             </div>
         </div>
     );

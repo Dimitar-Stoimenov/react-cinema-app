@@ -38,7 +38,7 @@
 
 .program-movie-info>div {
     min-height: 50px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .program-movie-header {
@@ -48,7 +48,7 @@
 }
 
 .program-movie-header>div {
-    border: 1px solid black;
+    padding-top: 3%;
 }
 
 .program-movie-title-wrapper {
@@ -57,21 +57,64 @@
 
 .program-movie-title {
     display: inline-block;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .program-movie-title:hover {
-    color:white;
+    color: rgb(149, 40, 0);
+    transition: 0.3s;
     cursor: pointer;
 }
 
 .program-movie-category {
     flex: 1;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-left: 8%;
+}
+
+.program-movie-category-hover-hidden {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1vh;
+    margin-right: 7vw;
+
+    /* media */
 }
 
 .program-movie-rating {
-    flex: 1;
+    flex: 1.2;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding-left: 5%;
+    text-align: end;
 }
 
 .program-movie-projections-grid {
     flex: 1;
+}
+
+.program-movie-projections-grid button {
+    cursor: pointer;
+    margin: 0 1vh;
+    border: 1px solid black;
+    border-radius: var(--radius);
+    background-color: var(--clr-gray100);
+
+}
+
+.program-movie-projections-grid button:hover {
+    transition: 0.3s;
+    background-color: var(--clr-gray200);
+}
+
+@media only screen and (max-width: 1850px) {
+    .program-movie-category-hover-hidden {
+        font-size: 0.8rem;
+        margin-top: 0.5vh;
+    }
 }

@@ -56,7 +56,7 @@ const Program = () => {
         const date = new Date(standartizeDate(dateString));
 
         clickDay(date);
-    }, []);
+    }, [dateString]);
 
     function incrementDays(days) {
         let dateCopy = new Date(today.getTime());
@@ -133,7 +133,7 @@ const Program = () => {
                     <div className="tab-day">{parsedDays.day4.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day4.parsedDate}</div>
                 </Link>
-                <Link to={"/projections/program/" + parseDate(parsedDays.day5.date)} className={activeDayTab === 5 ? 'day-tab active' : 'day-tab'}
+                {/* <Link to={"/projections/program/" + parseDate(parsedDays.day5.date)} className={activeDayTab === 5 ? 'day-tab active' : 'day-tab'}
                     onClick={() => {
                         clickDay(parsedDays.day5.date);
                         setActiveDayTab(5);
@@ -152,7 +152,7 @@ const Program = () => {
                 >
                     <div className="tab-day">{parsedDays.day6.dayOfWeek}</div>
                     <div className="tab-date">{parsedDays.day6.parsedDate}</div>
-                </Link>
+                </Link> */}
             </ul>
             <div className="program-content">
                 <div className="program-movie-card-wrapper">
