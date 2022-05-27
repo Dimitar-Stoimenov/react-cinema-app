@@ -2,14 +2,14 @@ import { errorCheck } from '../utils/utils';
 const url = "http://localhost:3030/movies";
 
 
-export async function create(movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType, movieRating) {
+export async function create(movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType) {
     let res = await fetch(`${url}/create`, {
         method: 'POST',
         headers: {
             "Content-Type": 'application/json',
             // 'X-Authorization': token,
         },
-        body: JSON.stringify({ movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType, movieRating }),
+        body: JSON.stringify({ movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType }),
     });
 
     return res;

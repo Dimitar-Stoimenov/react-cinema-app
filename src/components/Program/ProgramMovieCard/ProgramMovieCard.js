@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { parseHour } from '../../../utils/utils';
 
@@ -53,7 +53,12 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
                     </div>
                     <div className="program-movie-projections-grid">
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
-                            return <button key={projection._id} className={"div" + index}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                            return (
+                                <Fragment key={projection._id}>
+                                    <button className={"div" + index}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                    <div className={"info" + index}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div>
+                                </Fragment>
+                            )
                         })}
                     </div>
                 </div>
