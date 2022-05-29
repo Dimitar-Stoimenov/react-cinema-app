@@ -74,10 +74,8 @@
 .program-content {
     width: 60%;
     margin: 0 auto;
-
     background-color: var(--clr-gray200);
     min-height: 62.95vh;
-
     /* media */
 }
 
