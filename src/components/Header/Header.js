@@ -28,7 +28,7 @@ function Header() {
                     <Link to="#">Offers</Link>
                 </li>
                 <li className={scrollPosition >= 48 ? "nav-item scrolled-logo-wrapper" : "nav-item scrolled-logo-wrapper hidden"}>
-                    <Link id="scrolled-logo" to="/">BEAR CINEMA</Link>
+                    <Link id="scrolled-logo" to="/" onClick={() => window.scrollTo(0, 0)}>BEAR CINEMA</Link>
                 </li>
                 {/* Logged-in users */}
                 <li className="nav-item" id="user">
