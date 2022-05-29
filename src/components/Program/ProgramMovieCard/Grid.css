@@ -1,36 +1,126 @@
+.program-movie-projections-grid, .program-movie-projections-grid-smaller {
+    flex: 1;
+}
+
 .program-movie-projections-grid {
     display: grid;
     grid-template-columns: repeat(19, 1fr);
-    grid-template-rows: repeat(13, 1fr);
+    grid-template-rows: repeat(6, 1fr) 0.3fr 0.5fr repeat(5, 1fr);
     grid-column-gap: 10px;
-    grid-row-gap: 4px;
-    }
-    
-    .div0 { grid-area: 4 / 1 / 7 / 5; }
-    .info0 { grid-area: 1 / 1 / 4 / 5; }
-    .div1 { grid-area: 4 / 6 / 7 / 10; }
-    .info1 { grid-area: 1 / 6 / 4 / 10; }
-    .div2 { grid-area: 4 / 11 / 7 / 15; }
-    .info2 { grid-area: 1 / 11 / 4 / 15; }
-    .div3 { grid-area: 4 / 16 / 7 / 20; }
-    .info3 { grid-area: 1 / 16 / 4 / 20; }
-    .div4 { grid-area: 11 / 1 / 14 / 5; }
-    .info4 { grid-area: 8 / 1 / 11 / 5; }
-    .div5 { grid-area: 11 / 6 / 14 / 10; }
-    .info5 { grid-area: 8 / 6 / 11 / 10; }
-    .div6 { grid-area: 11 / 11 / 14 / 15; }
-    .info6 { grid-area: 8 / 11 / 11 / 15; }
-    .div7 { grid-area: 11 / 16 / 14 / 20; }
-    .info7 { grid-area: 8 / 16 / 11 / 20; }
+    /* grid-row-gap: 4px; */
+}
 
-    .program-movie-projections-grid > div {
-        opacity: 0;
-        text-align: right;
-        margin-right: 1vw;
-        margin-top: 0.5vh;
-        font-size: 0.9rem;
-    }
+.program-movie-projections-grid-smaller {
+    display: grid;
+    grid-template-columns: repeat(19, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 6px;
+}
 
-    .program-movie-projections-grid > button:hover + div {
-        opacity: 1;
-    }
+.btn0 {
+    grid-area: 4 / 1 / 7 / 5;
+}
+
+.info0 {
+    grid-area: 1 / 1 / 4 / 5;
+}
+
+.btn1 {
+    grid-area: 4 / 6 / 7 / 10;
+}
+
+.info1 {
+    grid-area: 1 / 6 / 4 / 10;
+}
+
+.btn2 {
+    grid-area: 4 / 11 / 7 / 15;
+}
+
+.info2 {
+    grid-area: 1 / 11 / 4 / 15;
+}
+
+.btn3 {
+    grid-area: 4 / 16 / 7 / 20;
+}
+
+.info3 {
+    grid-area: 1 / 16 / 4 / 20;
+}
+
+.btn4 {
+    grid-area: 11 / 1 / 14 / 5;
+}
+
+.info4 {
+    grid-area: 8 / 1 / 11 / 5;
+}
+
+.btn5 {
+    grid-area: 11 / 6 / 14 / 10;
+}
+
+.info5 {
+    grid-area: 8 / 6 / 11 / 10;
+}
+
+.btn6 {
+    grid-area: 11 / 11 / 14 / 15;
+}
+
+.info6 {
+    grid-area: 8 / 11 / 11 / 15;
+}
+
+.btn7 {
+    grid-area: 11 / 16 / 14 / 20;
+}
+
+.info7 {
+    grid-area: 8 / 16 / 11 / 20;
+}
+
+.program-movie-projections-grid-smaller>.info0 {
+    grid-area: 2 / 1 / 4 / 5;
+}
+
+.program-movie-projections-grid-smaller>.info1 {
+    grid-area: 2 / 6 / 4 / 10;
+}
+
+.program-movie-projections-grid-smaller>.info2 {
+    grid-area: 2 / 11 / 4 / 15;
+}
+
+.program-movie-projections-grid-smaller>.info3 {
+    grid-area: 2 / 16 / 4 / 20;
+}
+
+.program-movie-projections-grid>div, .program-movie-projections-grid-smaller>div {
+    opacity: 0;
+    text-align: right;
+    margin-right: 1vw;
+    margin-top: 0.5vh;
+    font-size: 0.9rem;
+}
+
+.program-movie-projections-grid>button:hover+div, .program-movie-projections-grid-smaller>button:hover+div {
+    opacity: 1;
+}
+
+.program-movie-projections-grid button, .program-movie-projections-grid-smaller button {
+    cursor: pointer;
+    margin: 0 1vh;
+    border: 1px solid black;
+    border-radius: var(--radius);
+    background-color: var(--clr-gray100);
+
+    font-size: 1.2em;
+}
+
+.program-movie-projections-grid button:hover, .program-movie-projections-grid-smaller button:hover {
+    transition: 0.3s;
+    background-color: var(--clr-gray200);
+}

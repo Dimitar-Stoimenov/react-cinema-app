@@ -51,11 +51,11 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
 
                         <div className="program-movie-rating">*****</div>
                     </div>
-                    <div className="program-movie-projections-grid">
+                    <div className={projectionsArray.length < 4 ? "program-movie-projections-grid-smaller" : "program-movie-projections-grid"}>
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                             return (
                                 <Fragment key={projection._id}>
-                                    <button className={"div" + index}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                    <button className={"btn" + index}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                     <div className={"info" + index}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div>
                                 </Fragment>
                             )
