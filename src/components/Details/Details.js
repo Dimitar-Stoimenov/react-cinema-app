@@ -22,7 +22,7 @@ const Details = () => {
         let { rating, user } = Object.fromEntries(new FormData(e.currentTarget));
         movieService.rate(movie, rating, user);
     };
-
+   
     return (
         <div className='details-container'>
             <div className="details-inner">

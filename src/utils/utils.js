@@ -62,5 +62,12 @@ export function standartizeHour(hourString) {
 
 export function parseHour(hourNumber) {
     let string = hourNumber.toString();
+
+    if (string.length === 2) {
+        string = "00" + string;
+    } else if (string.length === 3) {
+        string = "0" + string;
+    }
+
     return string.slice(0, 2) + ":" + string.slice(2);
 }

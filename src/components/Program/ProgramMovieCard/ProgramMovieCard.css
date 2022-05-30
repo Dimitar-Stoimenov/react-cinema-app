@@ -110,3 +110,11 @@
         padding-top: 3.5%;
     }
 }
+
+.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    color: #c0c0c0;
+    background-color: #ffffff;
+}

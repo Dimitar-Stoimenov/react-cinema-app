@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Fragment, useState } from 'react';
 
-import { parseHour } from '../../../utils/utils';
+import { parseHour, standartizeHour } from '../../../utils/utils';
 
 import './ProgramMovieCard.css';
 import './Grid.css';
@@ -16,6 +16,16 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
         "R": "Restricted, Children Under 17 Require Accompanying Parent or Adult Guardian.",
         "NC-17": "No One 17 and Under Admitted."
     }
+
+    let currentHour = new Date().getHours();
+    let currentMinutes = new Date().getMinutes();
+    if (Number(currentHour) < 10) {
+        currentHour = "0" + currentHour;
+    }
+    if (Number(currentMinutes) < 10) {
+        currentMinutes = "0" + currentMinutes;
+    }
+    let currentTime = standartizeHour(currentHour + ":" + currentMinutes);
 
     const onMovieClickHandler = () => {
         navigate(`/movies/${movieId}`);
@@ -55,7 +65,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                             return (
                                 <Fragment key={projection._id}>
-                                    <button className={"btn" + index}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                    <button className={currentTime > projection.hour ? `disabled btn${index}` : `btn${index}`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                     <div className={"info" + index}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div>
                                 </Fragment>
                             )
