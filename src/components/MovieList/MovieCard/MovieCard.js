@@ -15,7 +15,7 @@ const MovieCard = ({
             <img className="poster" src={movie.posterLink} onClick={onClickHandler} alt="poster"></img>
             <div className="movie-name" onClick={onClickHandler}>{movie.movieName}</div>
             <div className="extra-info-wrapper">
-                <div className="movie-rating">* * * * *</div>
+                <div className="movie-rating">Rating: {movie.movieRating.toFixed(2)}</div>
                 <div className="movie-tags">{movie.movieCategory}</div>
             </div>
         </div>
