@@ -37,7 +37,7 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
 
     return (
         <div className="next-projections-container">
-            <div className="next-projections-title">Next projections of {movieName}</div>
+            <div className="next-projections-title">Next projections of <span className="bold">{movieName}</span></div>
 
             {projections.map(([date, projectionsArray]) => {
                 const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

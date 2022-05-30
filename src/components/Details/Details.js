@@ -28,7 +28,7 @@ const Details = () => {
             <div className="details-inner">
                 <div className="details-movie-header">
                     <div className="details-movie-name">{movie.movieName}</div>
-                    <button className='details-tickets-button'>BUY TICKETS</button>
+                    <button className='details-tickets-button' onClick={() => window.scrollTo(0, 400)}>BUY TICKETS</button>
                 </div>
                 <div className="details-movie-wrapper">
                     <div className="details-movie-report">
