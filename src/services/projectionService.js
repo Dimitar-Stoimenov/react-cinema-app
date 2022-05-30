@@ -23,3 +23,9 @@ export async function getProjections(date) {
 
     return await errorCheck(res);
 }
+
+export async function getProjectionsByMovieId(movieId) {
+    let res = await fetch(`${url}/${movieId}`);
+
+    return await errorCheck(res);
+}

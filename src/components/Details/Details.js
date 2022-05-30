@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./Details.css";
 
 import * as movieService from "../../services/movieService";
+import NextProjectionsOfMovie from "./NextProjectionsOfMovie/NextProjectionsOfMovie";
 
 const Details = () => {
     const [movie, setMovie] = useState({});
@@ -75,6 +76,7 @@ const Details = () => {
                 <input type="text" className="rating-user" name="user" placeholder="add your username" />
                 <button type="submit" className="rating-button">Push rating</button>
             </form>
+            <NextProjectionsOfMovie key={movieId} movieId={movieId} movieName={movie.movieName} />
         </div>
     );
 }
