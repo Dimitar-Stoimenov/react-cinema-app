@@ -59,7 +59,7 @@ export function standartizeHour(hourString) {
 
     return result;
 }
-// asd
+
 export function parseHour(hourNumber) {
     let string = hourNumber.toString();
 

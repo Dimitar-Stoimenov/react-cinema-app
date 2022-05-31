@@ -61,7 +61,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
 
                         <div className="program-movie-rating">*****</div>
                     </div>
-                    <div className={projectionsArray.length < 4 ? "program-movie-projections-grid-smaller" : "program-movie-projections-grid"}>
+                    <div className={projectionsArray.length < 5 ? "program-movie-projections-grid-smaller" : "program-movie-projections-grid"}>
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                             return (
                                 <Fragment key={projection._id}>
