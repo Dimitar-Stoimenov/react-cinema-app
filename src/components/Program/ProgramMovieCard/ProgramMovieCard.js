@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { Fragment, useState } from 'react';
 
-import { parseHour, standartizeHour } from '../../../utils/utils';
+import { parseDate, parseHour, standartizeHour } from '../../../utils/utils';
 
 import './ProgramMovieCard.css';
 import './Grid.css';
 
-const ProgramMovieCard = ({ movieId, projectionsArray }) => {
+const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
     const navigate = useNavigate();
     const [visible, setVisible] = useState(false);
     const categoriesExplained = {
@@ -15,6 +15,16 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
         "PG-13": "Parents Strongly Cautioned, Some Material May Be Inappropriate for Children Under 13.",
         "R": "Restricted, Children Under 17 Require Accompanying Parent or Adult Guardian.",
         "NC-17": "No One 17 and Under Admitted."
+    }
+
+    function checkIfItIsToday() {
+        return true;
+
+        if (parseDate(date) === parseDate(new Date())) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     let currentHour = new Date().getHours();
@@ -65,7 +75,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                             return (
                                 <Fragment key={projection._id}>
-                                    <button className={currentTime > projection.hour ? `disabled btn${index} custom-btn-program btn-4` : `btn${index} custom-btn-program btn-4`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                    <button className={checkIfItIsToday() && currentTime > projection.hour ? `disabled btn${index} custom-btn-program btn-4` : `btn${index} custom-btn-program btn-4`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                     <div className={"info" + index}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div>
                                 </Fragment>
                             )

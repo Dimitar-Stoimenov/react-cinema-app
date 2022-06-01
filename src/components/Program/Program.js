@@ -10,6 +10,7 @@ const Program = () => {
     const { date: dateString } = useParams();
     const [projections, setProjections] = useState([]);
     const [activeDayTab, setActiveDayTab] = useState(0);
+    const [selectedDate, setSelectedDate] = useState(false);
 
     const today = new Date();
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -55,6 +56,7 @@ const Program = () => {
     useEffect(() => {
         const date = new Date(standartizeDate(dateString));
 
+        setSelectedDate(date);
         clickDay(date);
     }, [dateString]);
 
@@ -156,7 +158,7 @@ const Program = () => {
             </ul>
             <div className="program-content">
                 <div className="program-movie-card-wrapper">
-                    <ProgramSortByMovie projections={projections} />
+                    <ProgramSortByMovie projections={projections} date={selectedDate}/>
                 </div>
             </div>
         </div>

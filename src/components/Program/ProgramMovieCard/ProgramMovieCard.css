@@ -1,10 +1,11 @@
 .program-movie-card {
-    height: 29vh;
+    min-height: 29vh;
 
     position: relative;
     background-color: rgba(255, 255, 255, 0.15);
     width: 100%;
     border: 1px solid black;
+    overflow: hidden;
 }
 
 .program-movie-tab {
@@ -111,14 +112,6 @@
     }
 }
 
-.disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-
-    color: #c0c0c0;
-    background-color: #ffffff;
-}
-
 .custom-btn-program {
     outline: none;
     width: 130px;
@@ -178,4 +171,13 @@
 .btn-4:hover:after {
     width: 100%;
     transition: 800ms ease all;
+}
+
+.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    background-color: rgba(255, 255, 255, 0.35);
+    color: rgba(0, 0, 0, 0.5);
+    /* text-decoration: line-through; */
 }

@@ -1,6 +1,6 @@
 import ProgramMovieCard from '../ProgramMovieCard/ProgramMovieCard';
 
-const ProgramSortByMovie = ({ projections }) => {
+const ProgramSortByMovie = ({ projections, date }) => {
     let moviesObj = {};
 
     for (const projection of projections) {
@@ -18,7 +18,7 @@ const ProgramSortByMovie = ({ projections }) => {
             {movies.length < 1
                 ? <div className="no-projections-today">There are no projections scheduled for this day yet.
                 </div>
-                : movies.map(([movieId, projectionsArray]) => <ProgramMovieCard key={movieId} movieId={movieId} projectionsArray={projectionsArray} />)
+                : movies.map(([movieId, projectionsArray]) => <ProgramMovieCard key={movieId} movieId={movieId} projectionsArray={projectionsArray} date={date}/>)
             }
         </>
     );
