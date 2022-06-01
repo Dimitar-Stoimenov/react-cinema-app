@@ -18,8 +18,6 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
     }
 
     function checkIfItIsToday() {
-        return true;
-
         if (parseDate(date) === parseDate(new Date())) {
             return true;
         } else {
