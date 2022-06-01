@@ -52,7 +52,7 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
                                 {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                                     return (
                                         <Fragment key={projection._id}>
-                                            <button className="next-projection-button">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                            <button className="btn-7 custom-btn-next">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                             {/* <div className={"next-projection-info"}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div> */}
                                         </Fragment>
                                     )

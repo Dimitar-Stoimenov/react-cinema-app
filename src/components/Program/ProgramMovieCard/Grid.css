@@ -103,14 +103,14 @@
     text-align: right;
     margin-right: 1vw;
     margin-top: 0.5vh;
-    font-size: 0.9rem;
+    font-size: 0.75rem;
 }
 
 .program-movie-projections-grid>button:hover+div, .program-movie-projections-grid-smaller>button:hover+div {
     opacity: 1;
 }
 
-.program-movie-projections-grid button, .program-movie-projections-grid-smaller button {
+/* .program-movie-projections-grid button, .program-movie-projections-grid-smaller button {
     cursor: pointer;
     margin: 0 1vh;
     border: 1px solid black;
@@ -118,9 +118,9 @@
     background-color: var(--clr-gray100);
 
     font-size: 1.2em;
-}
+} */
 
-.program-movie-projections-grid button:hover, .program-movie-projections-grid-smaller button:hover {
+/* .program-movie-projections-grid button:hover, .program-movie-projections-grid-smaller button:hover {
     transition: 0.3s;
     background-color: var(--clr-gray200);
-}
+} */

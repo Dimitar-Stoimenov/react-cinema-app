@@ -65,7 +65,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray }) => {
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                             return (
                                 <Fragment key={projection._id}>
-                                    <button className={currentTime > projection.hour ? `disabled btn${index}` : `btn${index}`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                    <button className={currentTime > projection.hour ? `disabled btn${index} custom-btn-program btn-4` : `btn${index} custom-btn-program btn-4`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                     <div className={"info" + index}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div>
                                 </Fragment>
                             )

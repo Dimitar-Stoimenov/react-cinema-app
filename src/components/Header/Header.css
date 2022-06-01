@@ -2,7 +2,7 @@
     position: fixed;
     background-color: rgba(0, 0, 0, 0.7);
     box-sizing: 0px 0px 10px var(--clr-gray200);
-    z-index: 1;
+    z-index: 9;
     padding: 0.8rem 0;
     border-radius: var(--radius);
     display: flex;

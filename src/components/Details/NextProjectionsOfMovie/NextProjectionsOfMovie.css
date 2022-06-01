@@ -11,7 +11,7 @@
 .next-projections-title {
     padding: 3.2vh 0;
     font-size: 1.5em;
-    letter-spacing:0.03vw;
+    letter-spacing: 0.03vw;
     /* font-weight: bold; */
 }
 
@@ -19,6 +19,7 @@
     padding: 2vh;
     display: flex;
     border-top: 1px solid white;
+    align-items: center;
 }
 
 .next-projections-day {
@@ -32,6 +33,67 @@
 .next-projection-button {
     margin-right: 1vh;
     cursor: pointer;
+}
+
+.custom-btn-next {
+    outline: none;
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    margin-right: 1vh;
+    border: 2px solid #000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.btn-7 {
+    background: #fff;
+    color: #000;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    z-index: 1;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.btn-7:hover {
+    background: transparent;
+    color: orange;
+    font-weight: bold;
+}
+
+.btn-7:before,
+.btn-7:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 50%;
+    right: 0;
+    z-index: -1;
+    background: #fff;
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.btn-7:before {
+    top: 0;
+}
+
+.btn-7:after {
+    bottom: 0;
+}
+
+.btn-7:hover:before,
+.btn-7:hover:after {
+    height: 0;
+    background-color: #fff;
 }
 
 @media only screen and (max-width: 1850px) {
