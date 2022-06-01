@@ -15,9 +15,6 @@
 
 .program-movie-poster-wrapper {
     flex-basis: 16%;
-    height: 28vh;
-    /* margin: 1vh 1vh; */
-
     overflow: hidden;
 }
 
@@ -173,10 +170,10 @@
     }
 
     .program-movie-header {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 
     .program-movie-header>div {
-        padding-top: 3.5%;
+        padding-top: 1.5%;
     }
 }
