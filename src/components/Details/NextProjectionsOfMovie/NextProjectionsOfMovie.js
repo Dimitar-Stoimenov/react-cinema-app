@@ -50,6 +50,8 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
                         <div className="next-projections-info-container">
                             <div className="next-projections-info-projections-list">
                                 {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
+                                    if (index > 5) return null;
+
                                     return (
                                         <Fragment key={projection._id}>
                                             <button className="btn-7 custom-btn-next">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>

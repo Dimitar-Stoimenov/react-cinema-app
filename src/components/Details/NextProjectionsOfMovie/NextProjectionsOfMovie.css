@@ -30,17 +30,12 @@
     /* flex-basis: 80%; */
 }
 
-.next-projection-button {
-    margin-right: 1vh;
-    cursor: pointer;
-}
-
 .custom-btn-next {
     outline: none;
     width: 130px;
     height: 40px;
     padding: 10px 25px;
-    margin-right: 1vh;
+    margin-right: 0.48vh;
     border: 2px solid #000;
     font-family: 'Lato', sans-serif;
     font-weight: 500;

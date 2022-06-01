@@ -13,7 +13,7 @@
 .program-movie-projections-grid-smaller {
     display: grid;
     grid-template-columns: repeat(19, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr) 0.8fr 0.5fr repeat(6, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 6px;
 }

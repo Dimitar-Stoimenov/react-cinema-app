@@ -15,7 +15,7 @@
 
 .program-movie-poster-wrapper {
     flex-basis: 16%;
-    height: 27vh;
+    height: 28vh;
     /* margin: 1vh 1vh; */
 
     overflow: hidden;
@@ -97,21 +97,6 @@
     text-align: end;
 }
 
-@media only screen and (max-width: 1850px) {
-    .program-movie-category-hover-hidden {
-        font-size: 0.8rem;
-        margin-top: 0.5vh;
-    }
-
-    .program-movie-header {
-        font-size: 1rem;
-    }
-
-    .program-movie-header>div {
-        padding-top: 3.5%;
-    }
-}
-
 .custom-btn-program {
     outline: none;
     width: 130px;
@@ -128,7 +113,6 @@
     overflow: hidden;
 }
 
-/* 5 */
 .btn-4 {
     background: #fff;
     color: #000;
@@ -180,4 +164,19 @@
     background-color: rgba(255, 255, 255, 0.35);
     color: rgba(0, 0, 0, 0.5);
     /* text-decoration: line-through; */
+}
+
+@media only screen and (max-width: 1850px) {
+    .program-movie-category-hover-hidden {
+        font-size: 0.8rem;
+        margin-top: 0.5vh;
+    }
+
+    .program-movie-header {
+        font-size: 1rem;
+    }
+
+    .program-movie-header>div {
+        padding-top: 3.5%;
+    }
 }
