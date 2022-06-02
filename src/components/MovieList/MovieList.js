@@ -1,7 +1,8 @@
-import './MovieList.css';
+import { useEffect, useState } from 'react';
+
 import { getAllMovies, getClassicMovies, getTopMovies, getFamilyMovies } from '../../services/movieService';
 import MovieCard from './MovieCard/MovieCard';
-import { useEffect, useState } from 'react';
+import './MovieList.css';
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);

@@ -1,7 +1,8 @@
-import './Header.css';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { parseDate } from '../../utils/utils';
+import './Header.css';
 
 function Header() {
     const [scrollPosition, setScrollPosition] = useState(0);

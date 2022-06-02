@@ -3,8 +3,9 @@ import { Link, useParams } from "react-router-dom";
 
 import { getProjections } from "../../services/projectionService";
 import { parseDate, standartizeDate } from '../../utils/utils';
-import "./Program.css";
 import ProgramSortByMovie from "./ProgramSortByMovie/ProgramSortByMovie";
+
+import "./Program.css";
 
 const Program = () => {
     const { date: dateString } = useParams();

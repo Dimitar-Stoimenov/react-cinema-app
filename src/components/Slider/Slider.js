@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Slider.css';
-
-import { SliderData } from './SliderData';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 
+import { SliderData } from './SliderData';
+
+import './Slider.css';
 
 function Slider() {
     const [currentImgIndex, setCurrentImgIndex] = useState(0);
