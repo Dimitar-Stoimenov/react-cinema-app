@@ -10,6 +10,7 @@ import Create from './components/Create/Create';
 import CreateHall from './components/CreateHall/CreateHall';
 import CreateProjection from './components/CreateProjection/CreateProjection';
 import Program from './components/Program/Program';
+import TicketPurchaseMenu from './components/TicketPurchaseMenu/TicketPurchaseMenu';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/projections/create" element={<CreateProjection />} />
         <Route path="/movies/:movieId" element={<Details />} />
         <Route path="/projections/program/:date" element={<Program />} />
+        <Route path="/projections/:projectionId" element={<TicketPurchaseMenu />}></Route>
       </Routes>
 
       <Footer />

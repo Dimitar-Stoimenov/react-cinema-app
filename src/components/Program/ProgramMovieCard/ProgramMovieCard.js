@@ -50,6 +50,11 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
         }
     }
 
+    function clickProjection(projectionId) {
+        navigate(`/projections/${projectionId}`);
+        window.scrollTo(0, 0);
+    }
+
     return (
         <div className="program-movie-card">
             <div className="program-movie-tab">
@@ -73,7 +78,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                             return (
                                 <Fragment key={projection._id}>
-                                    <button className={checkIfItIsToday() && currentTime > projection.hour ? `disabled btn${index} custom-btn-program btn-4` : `btn${index} custom-btn-program btn-4`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                    <button onClick={() => clickProjection(projection._id)} className={checkIfItIsToday() && currentTime > projection.hour ? `disabled btn${index} custom-btn-program btn-4` : `btn${index} custom-btn-program btn-4`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                     <div className={"info" + index}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div>
                                 </Fragment>
                             )

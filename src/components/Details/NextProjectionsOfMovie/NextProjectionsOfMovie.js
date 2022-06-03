@@ -1,10 +1,14 @@
 import { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { getProjectionsByMovieId } from "../../../services/projectionService";
 import { parseDate, parseHour, standartizeDate } from "../../../utils/utils";
 import "./NextProjectionsOfMovie.css";
 
+
 const NextProjectionsOfMovie = ({ movieId, movieName }) => {
     const [projections, setProjections] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getProjectionsByMovieId(movieId)
@@ -35,6 +39,11 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
         }
     }
 
+    function clickProjection(projectionId) {
+        navigate(`/projections/${projectionId}`);
+        window.scrollTo(0, 0);
+    }
+
     return (
         <div className="next-projections-container">
             <div className="next-projections-title">Next projections of <span className="bold">{movieName}</span></div>
@@ -54,7 +63,7 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
 
                                     return (
                                         <Fragment key={projection._id}>
-                                            <button className="btn-7 custom-btn-next">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                            <button onClick={() => clickProjection(projection._id)} className="btn-7 custom-btn-next">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                             {/* <div className={"next-projection-info"}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div> */}
                                         </Fragment>
                                     )
