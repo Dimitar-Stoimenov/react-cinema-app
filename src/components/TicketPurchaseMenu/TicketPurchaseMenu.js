@@ -4,6 +4,12 @@ const TicketPurchaseMenu = () => {
 
     return (
         <div className="purchase-container">
+            <div className="purchase-state">
+                <div className="purchase-ticket-selection">Ticket selection...</div>
+                <div className="purchase-seat-selection">Seat selection...</div>
+                <div className="purchase-buy-or-reserve">Buy/Reserve...</div>
+                <div className="purchase-finish">Finish</div>
+            </div>
             <div className="buy-or-reserve-container">
                 <botton className="ticket-btn">BUY TICKETS</botton>
                 <botton className="ticket-btn">RESERVE TICKETS</botton>

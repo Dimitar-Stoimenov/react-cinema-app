@@ -1,7 +1,7 @@
 footer {
     border-top: 1px dotted var(--clr-primary);
     background-color: black;
-    color: var(--clr-primary); 
+    color: var(--clr-primary);
 }
 
 .footer-content {
@@ -20,7 +20,6 @@ footer {
 .li-header {
     font-weight: bold;
 }
-
 
 .footer-copyright {
     border-top: 1px dotted black;

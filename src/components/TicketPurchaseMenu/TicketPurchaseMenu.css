@@ -1,0 +1,5 @@
+.purchase-container {
+    width: var(--content-width);
+    margin: 15vh auto 0;
+    height: 100vh;
+}
