@@ -1,6 +1,24 @@
 .purchase-container {
     width: var(--content-width);
     margin: 0 auto;
-    padding: 15vh;
+    padding: 13vh;
     height: 100vh;
+}
+
+.purchase-stage {
+    display: flex;
+    margin-bottom: 6vh;
+    font-size: 1.4rem;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.purchase-stage>div {
+    /* flex: 1; */
+    padding: 10px 0;
+    color: var(--clr-gray300);
+}
+
+.purchase-stage .active-stage {
+    color: black;
 }

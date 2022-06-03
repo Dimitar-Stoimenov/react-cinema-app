@@ -1,18 +1,16 @@
 import { useParams } from "react-router-dom";
 import "./TicketPurchaseMenu.css";
+import TicketPurchaseStage from "./TicketPurchaseStage/TicketPurchaseStage";
 
 const TicketPurchaseMenu = () => {
+    const stage = 1;
+
 
     const { projectionId } = useParams();
 
     return (
         <div className="purchase-container">
-            <div className="purchase-state">
-                <div className="purchase-ticket-selection">Ticket selection...</div>
-                <div className="purchase-seat-selection">Seat selection...</div>
-                <div className="purchase-buy-or-reserve">Buy/Reserve...</div>
-                <div className="purchase-finish">Finish</div>
-            </div>
+            <TicketPurchaseStage stage={1} />
             <div className="buy-or-reserve-container">
                 <button className="ticket-btn">BUY TICKETS</button>
                 <button className="ticket-btn">RESERVE TICKETS</button>
