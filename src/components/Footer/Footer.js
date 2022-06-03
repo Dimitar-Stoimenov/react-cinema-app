@@ -1,6 +1,14 @@
+import { useLocation } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
+    const location = useLocation();
+
+    if (location.pathname.match('/projections/program')) {
+        // CONTINUE
+    } else if (location.pathname.match('/projections')) {
+        return null;
+    }
 
     return (
         <footer>
