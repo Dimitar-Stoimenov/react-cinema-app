@@ -4,8 +4,6 @@ import TicketPurchaseStage from "./TicketPurchaseStage/TicketPurchaseStage";
 
 const TicketPurchaseMenu = () => {
     const stage = 1;
-
-
     const { projectionId } = useParams();
 
     return (
