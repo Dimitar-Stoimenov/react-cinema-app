@@ -7,6 +7,8 @@
     border-radius: var(--radius);
     padding: 10px 10px 41px;
     text-align: center;
+    height: 47vh;
+    /*  media */
 }
 
 .poster {
@@ -50,4 +52,10 @@
 
 .movie-tags {
     margin-left: auto;
+}
+
+@media only screen and (max-width: 1850px) {
+    .card-wrapper-outer {
+        height: 48.6vh;
+    }
 }

@@ -9,7 +9,7 @@ import './MovieList.css';
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [activeMovieTab, setActiveMovieTab] = useState([0]);
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState(null);
     const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
     //fix to not query every click - add 4 more states and just replace
@@ -20,6 +20,8 @@ const MovieList = () => {
                 .then(res => {
                     setMovies(res);
                 })
+        } else if (debouncedSearchTerm === "") {
+            clickAllMovies();
         } else {
             clickTopMovies();
         }
@@ -53,9 +55,6 @@ const MovieList = () => {
                 setActiveMovieTab(3);
             })
     };
-
-
-
 
     return (
         <div className='movie-list-container'>

@@ -24,23 +24,23 @@ const Footer = () => {
                 </ul>
                 <div className="footer-section">
                     <ul className="wrapper">
-                        <a href="https://facebook.com/bear-cinema" target="_blank" className="icon facebook">
+                        <a href="https://facebook.com/bear-cinema" target="_blank" rel="noreferrer" className="icon facebook">
                             <span className="tooltip">Facebook</span>
                             <span><FaFacebookF className="fab fa-facebook-f" /></span>
                         </a>
-                        <a href="https://twitter.com/bear-cinema" target="_blank" className="icon twitter">
+                        <a href="https://twitter.com/bear-cinema" target="_blank" rel="noreferrer" className="icon twitter">
                             <span className="tooltip">Twitter</span>
                             <span><FaTwitter className="fab fa-twitter" /></span>
                         </a>
-                        <a href="https://instagram.com/bear-cinema" target="_blank" className="icon instagram">
+                        <a href="https://instagram.com/bear-cinema" target="_blank" rel="noreferrer" className="icon instagram">
                             <span className="tooltip">Instagram</span>
                             <span><FaInstagram className="fab fa-instagram" /></span>
                         </a>
-                        <a href="https://github.com/dimitar-stoimenov" target="_blank" className="icon github">
+                        <a href="https://github.com/dimitar-stoimenov" target="_blank" rel="noreferrer" className="icon github">
                             <span className="tooltip">Github</span>
                             <span><FaGithub className="fab fa-github" /></span>
                         </a>
-                        <a href="https://youtube.com/bear-cinema" target="_blank" className="icon youtube">
+                        <a href="https://youtube.com/bear-cinema" target="_blank" rel="noreferrer" className="icon youtube">
                             <span className="tooltip">Youtube</span>
                             <span><FaYoutube className="fab fa-youtube" /></span>
                         </a>
