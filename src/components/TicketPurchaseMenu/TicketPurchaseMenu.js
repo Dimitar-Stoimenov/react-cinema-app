@@ -1,10 +1,22 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./TicketPurchaseMenu.css";
+
+import * as projectionService from "../../services/projectionService";
 import TicketPurchaseStage from "./TicketPurchaseStage/TicketPurchaseStage";
+
+import "./TicketPurchaseMenu.css";
 
 const TicketPurchaseMenu = () => {
     const stage = 1;
     const { projectionId } = useParams();
+    const [projection, setProjection] = useState({});
+
+    useEffect(() => {
+        projectionService.getProjectionById(projectionId)
+            .then(result => {
+                setProjection(result);
+            })
+    }, [projectionId])
 
     return (
         <div className="purchase-container">

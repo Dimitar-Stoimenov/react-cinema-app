@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "./Details.css";
 
 import * as movieService from "../../services/movieService";
 import NextProjectionsOfMovie from "./NextProjectionsOfMovie/NextProjectionsOfMovie";
+
+import "./Details.css";
 
 const Details = () => {
     const [movie, setMovie] = useState({});

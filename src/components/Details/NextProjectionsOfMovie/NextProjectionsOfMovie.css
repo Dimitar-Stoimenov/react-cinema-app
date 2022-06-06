@@ -87,6 +87,11 @@
     background-color: #fff;
 }
 
+.no-projections-scheduled {
+    padding-bottom: 1.75vh;
+    font-size: 0.85em;
+}
+
 @media only screen and (max-width: 1850px) {
     .next-projections-container {
         width: 60%;

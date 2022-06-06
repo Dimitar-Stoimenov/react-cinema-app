@@ -12,7 +12,7 @@ export async function create(movieName, posterLink, description, movieCategory, 
         body: JSON.stringify({ movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType }),
     });
 
-    return res;
+    return await errorCheck(res);
 }
 
 export async function rate(movie, rating, user) {

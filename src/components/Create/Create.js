@@ -1,8 +1,11 @@
-import './Create.css';
+import { useNavigate } from 'react-router';
 
 import { create } from '../../services/movieService';
 
+import './Create.css';
+
 const Create = () => {
+    const navigate = useNavigate();
 
     const createHandler = (e) => {
         e.preventDefault();
@@ -11,8 +14,12 @@ const Create = () => {
 
         create(movieName, posterLink, description, movieCategory, genres, director, premiere, length, cast, movieType)
             .then(movieData => {
-                console.log('created movie!')
+                navigate((`/movies/create/success`));
             })
+            .catch(error => {
+                console.log(error);
+                alert('Creating movie was unsuccessful!');
+            });
     }
 
     return (

@@ -51,7 +51,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
     }
 
     function clickProjection(projectionId) {
-        navigate(`/projections/${projectionId}`);
+        navigate(`/projections/id/${projectionId}`);
         window.scrollTo(0, 0);
     }
 

@@ -40,7 +40,7 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
     }
 
     function clickProjection(projectionId) {
-        navigate(`/projections/${projectionId}`);
+        navigate(`/projections/id/${projectionId}`);
         window.scrollTo(0, 0);
     }
 
@@ -48,31 +48,33 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
         <div className="next-projections-container">
             <div className="next-projections-title">Next projections of <span className="bold">{movieName}</span></div>
 
-            {projections.map(([date, projectionsArray]) => {
-                const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                let dayOfWeek = weekday[new Date(standartizeDate(date)).getDay()];
-                let dateAsString = date.substring(0, 5).replace("-", "/");
+            {projections.length < 1
+                ? <div className="no-projections-scheduled">There are no scheduled projections of this movie.</div>
+                : projections.map(([date, projectionsArray]) => {
+                    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                    let dayOfWeek = weekday[new Date(standartizeDate(date)).getDay()];
+                    let dateAsString = date.substring(0, 5).replace("-", "/");
 
-                return (
-                    <div className="next-projections-tab" key={date}>
-                        <div className="next-projections-day">{dayOfWeek + " " + dateAsString}</div>
-                        <div className="next-projections-info-container">
-                            <div className="next-projections-info-projections-list">
-                                {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
-                                    if (index > 5) return null;
+                    return (
+                        <div className="next-projections-tab" key={date}>
+                            <div className="next-projections-day">{dayOfWeek + " " + dateAsString}</div>
+                            <div className="next-projections-info-container">
+                                <div className="next-projections-info-projections-list">
+                                    {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
+                                        if (index > 5) return null;
 
-                                    return (
-                                        <Fragment key={projection._id}>
-                                            <button onClick={() => clickProjection(projection._id)} className="btn-7 custom-btn-next">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
-                                            {/* <div className={"next-projection-info"}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div> */}
-                                        </Fragment>
-                                    )
-                                })}
+                                        return (
+                                            <Fragment key={projection._id}>
+                                                <button onClick={() => clickProjection(projection._id)} className="btn-7 custom-btn-next">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                                {/* <div className={"next-projection-info"}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div> */}
+                                            </Fragment>
+                                        )
+                                    })}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )
-            })}
+                    )
+                })}
 
 
 
