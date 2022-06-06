@@ -12,8 +12,6 @@ const MovieList = () => {
     const [searchTerm, setSearchTerm] = useState(null);
     const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
-    //fix to not query every click - add 4 more states and just replace
-
     useEffect(() => {
         if (debouncedSearchTerm) {
             searchMoviesByName(debouncedSearchTerm)
@@ -83,7 +81,7 @@ const MovieList = () => {
 
             {activeMovieTab === 3
                 ? <input onChange={(e) => setSearchTerm(e.target.value)} className="searchBar" placeholder='Search...' type="text" />
-                : " "
+                : null
             }
 
             <ul className="movie-card-container">
