@@ -1,5 +1,6 @@
 .movie-list-container {
     background-color: black;
+    position: relative;
 }
 
 .movie-tabs-container {
@@ -33,7 +34,7 @@
     background-color: rgb(220, 220, 220);
     color: rgba(0, 0, 0, 0.85);
     transition: 0.3s;
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.85);
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.85);
 }
 
 .movie-tab:first-child {
@@ -42,6 +43,32 @@
 
 .movie-tab:last-child {
     margin-right: 40rem;
+}
+
+.movie-card-container {
+    border-radius: var(--radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin: 0 auto;
+    width: var(--content-width);
+    background-color: rgb(220, 220, 220);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    overflow: hidden;
+    min-height: 53vh;
+    /* media */
+}
+
+.no-movies-yet {
+    /* height: 54.2vh; */
+}
+
+.searchBar {
+    position: absolute;
+    right: 37.75vh;
+    top: 2.76vh;
+    /* media */
 }
 
 @media only screen and (max-width: 1850px) {
@@ -57,21 +84,13 @@
     .movie-tab:last-child {
         margin-right: 36rem;
     }
-}
 
-.movie-card-container {
-    border-radius: var(--radius);
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    margin: 0 auto;
-    width: var(--content-width);
-    background-color: rgb(220, 220, 220);
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    overflow: hidden;
-}
+    .searchBar {
+        right: 35vh;
+        top: 3.2vh;
+    }
 
-.no-movies-yet {
-    height: 54.2vh;
+    .movie-card-container {
+        min-height: 56.5vh;
+    }
 }

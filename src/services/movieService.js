@@ -52,6 +52,12 @@ export async function getFamilyMovies() {
     return await errorCheck(res);
 }
 
+export async function searchMoviesByName(string) {
+    let res = await fetch(`${url}/search/${string}`);
+
+    return await errorCheck(res);
+}
+
 export async function getOne(id) {
     let res = await fetch(`${url}/${id}`);
 

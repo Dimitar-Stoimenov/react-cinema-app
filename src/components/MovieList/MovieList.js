@@ -1,18 +1,29 @@
 import { useEffect, useState } from 'react';
 
-import { getAllMovies, getClassicMovies, getTopMovies, getFamilyMovies } from '../../services/movieService';
+import { getAllMovies, getClassicMovies, getTopMovies, getFamilyMovies, searchMoviesByName } from '../../services/movieService';
+import { useDebounce } from "../../hooks/useDebounce";
 import MovieCard from './MovieCard/MovieCard';
+
 import './MovieList.css';
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
     const [activeMovieTab, setActiveMovieTab] = useState([0]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
     //fix to not query every click - add 4 more states and just replace
 
     useEffect(() => {
-        clickTopMovies();
-    }, [])
+        if (debouncedSearchTerm) {
+            searchMoviesByName(debouncedSearchTerm)
+                .then(res => {
+                    setMovies(res);
+                })
+        } else {
+            clickTopMovies();
+        }
+    }, [debouncedSearchTerm])
 
     const clickTopMovies = () => {
         getTopMovies()
@@ -43,6 +54,9 @@ const MovieList = () => {
             })
     };
 
+
+
+
     return (
         <div className='movie-list-container'>
             <ul className="movie-tabs-container">
@@ -67,10 +81,16 @@ const MovieList = () => {
                     All Movies
                 </button>
             </ul>
+
+            {activeMovieTab === 3
+                ? <input onChange={(e) => setSearchTerm(e.target.value)} className="searchBar" placeholder='Search...' type="text" />
+                : " "
+            }
+
             <ul className="movie-card-container">
                 {movies.length > 0
                     ? movies.map(x => <MovieCard key={x._id} movie={x} />)
-                    : <p className="no-movies-yet">No movies available yet.</p>
+                    : <p className="no-movies-yet">No movies available.</p>
                 }
             </ul>
         </div>
