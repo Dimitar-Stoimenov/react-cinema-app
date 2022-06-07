@@ -67,6 +67,12 @@
     /* media */
 }
 
+@media only screen and (max-width: 1950px) {
+    .searchBar {
+        right: 36.5vh;
+    }
+}
+
 @media only screen and (max-width: 1850px) {
     .movie-tab {
         min-width: 150px;
@@ -84,11 +90,5 @@
     .searchBar {
         right: 35vh;
         top: 3.2vh;
-    }
-}
-
-@media only screen and (max-width: 1950px) {
-    .searchBar {
-        right: 36.5vh;
     }
 }

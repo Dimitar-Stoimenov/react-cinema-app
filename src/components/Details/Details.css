@@ -69,6 +69,7 @@
 
 .details-movie-poster-wrapper {
     flex-basis: 25%;
+    margin-bottom: 2vh;
 }
 
 .details-movie-poster {
