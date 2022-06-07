@@ -7,7 +7,7 @@
     width: 55%;
     margin: 10vh auto 3vh;
     background-color: black;
-    min-height: 73.6vh;
+    min-height: 69vh;
     /* media */
 }
 
@@ -123,7 +123,6 @@
     .details-inner {
         width: 60%;
         margin: 10.5vh auto 3vh;
-        min-height: 72vh;
     }
 }
 
@@ -131,7 +130,6 @@
     .details-inner {
         width: var(--content-width);
         margin: 10.5vh auto 2vh;
-        min-height: 69vh;
     }
 
     .details-movie-description {

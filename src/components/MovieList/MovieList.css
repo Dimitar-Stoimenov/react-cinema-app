@@ -86,3 +86,9 @@
         top: 3.2vh;
     }
 }
+
+@media only screen and (max-width: 1950px) {
+    .searchBar {
+        right: 36.5vh;
+    }
+}

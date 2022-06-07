@@ -25,11 +25,11 @@ function Header() {
         <>
             <ul className="nav-list">
                 <li className="nav-item" id="navLeftSide">
-                    <Link to={"/projections/program/" + today}>Program</Link>
+                    <Link to={"/projections/program/" + today} onClick={() => window.scrollTo(0, 0)}>Program</Link>
                     <Link to="#">Offers</Link>
                 </li>
                 <li className={scrollPosition >= 48 ? "nav-item scrolled-logo-wrapper" : "nav-item scrolled-logo-wrapper hidden"}>
-                    <Link id="scrolled-logo" to="/" onClick={() => window.scrollTo(0, 0)}>BEAR CINEMA</Link>
+                    <Link to="/" id="scrolled-logo" onClick={() => window.scrollTo(0, 0)}>BEAR CINEMA</Link>
                 </li>
                 {/* Logged-in users */}
                 <li className="nav-item" id="user">
