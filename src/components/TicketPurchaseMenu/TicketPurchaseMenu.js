@@ -10,6 +10,7 @@ const TicketPurchaseMenu = () => {
     const stage = 1;
     const { projectionId } = useParams();
     const [projection, setProjection] = useState({});
+    const [activeTicketState, setActiveTicketState] = useState();
 
     useEffect(() => {
         projectionService.getProjectionById(projectionId)

@@ -2,9 +2,9 @@ import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { getProjectionsByMovieId } from "../../../services/projectionService";
-import { parseDate, parseHour, standartizeDate } from "../../../utils/utils";
-import "./NextProjectionsOfMovie.css";
+import { parseDate, parseHour, standartizeDate, standartizeHour } from "../../../utils/utils";
 
+import "./NextProjectionsOfMovie.css";
 
 const NextProjectionsOfMovie = ({ movieId, movieName }) => {
     const [projections, setProjections] = useState([]);
@@ -44,6 +44,14 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
         window.scrollTo(0, 0);
     }
 
+    function checkIfItIsToday(date) {
+        if (parseDate(date) === parseDate(new Date())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return (
         <div className="next-projections-container">
             <div className="next-projections-title">Next projections of <span className="bold">{movieName}</span></div>
@@ -61,12 +69,28 @@ const NextProjectionsOfMovie = ({ movieId, movieName }) => {
                             <div className="next-projections-info-container">
                                 <div className="next-projections-info-projections-list">
                                     {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
+                                        let inactiveBtn = false;
+
                                         if (index > 5) return null;
+
+                                        if (checkIfItIsToday(new Date(standartizeDate(date)))) {
+                                            let currentHour = new Date().getHours();
+                                            let currentMinutes = new Date().getMinutes();
+                                            if (Number(currentHour) < 10) {
+                                                currentHour = "0" + currentHour;
+                                            }
+                                            if (Number(currentMinutes) < 10) {
+                                                currentMinutes = "0" + currentMinutes;
+                                            }
+                                            let currentTime = standartizeHour(currentHour + ":" + currentMinutes);
+                                            if (currentTime > projection.hour) {
+                                                inactiveBtn = true;
+                                            }
+                                        }
 
                                         return (
                                             <Fragment key={projection._id}>
-                                                <button onClick={() => clickProjection(projection._id)} className="btn-7 custom-btn-next">{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
-                                                {/* <div className={"next-projection-info"}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div> */}
+                                                <button onClick={() => clickProjection(projection._id)} className={inactiveBtn ? "inactive-btn btn-7 custom-btn-next" : "btn-7 custom-btn-next"}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                             </Fragment>
                                         )
                                     })}
