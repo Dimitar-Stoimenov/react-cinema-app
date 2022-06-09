@@ -7,10 +7,10 @@ import TicketPurchaseStage from "./TicketPurchaseStage/TicketPurchaseStage";
 import "./TicketPurchaseMenu.css";
 
 const TicketPurchaseMenu = () => {
-    const stage = 1;
-    const { projectionId } = useParams();
     const [projection, setProjection] = useState({});
     const [activeTicketState, setActiveTicketState] = useState();
+    const { projectionId } = useParams();
+    const stage = 1;
 
     useEffect(() => {
         projectionService.getProjectionById(projectionId)
@@ -23,8 +23,15 @@ const TicketPurchaseMenu = () => {
         <div className="purchase-container">
             <TicketPurchaseStage stage={1} />
             <div className="buy-or-reserve-container">
-                <button className="ticket-btn">BUY TICKETS</button>
-                <button className="ticket-btn">RESERVE TICKETS</button>
+                <div className="ticket-btn ticket-buy">
+                    BUY TICKETS
+                    <div className="ticket-checkbox checkbox-buy">✓</div>
+                </div>
+                <div className="ticket-or">or</div>
+                <div className="ticket-btn ticket-reserve">
+                    RESERVE TICKETS
+                    <div className="ticket-checkbox checkbox-reserve">✓</div>
+                </div>
             </div>
             <div className="purchase-info-container">
                 <div className="purchase-projection-info"></div>

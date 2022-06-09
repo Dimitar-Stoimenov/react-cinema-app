@@ -22,3 +22,50 @@
 .purchase-stage .active-stage {
     color: black;
 }
+
+.buy-or-reserve-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.ticket-btn {
+    position: relative;
+    width: 27vh;
+    cursor: pointer;
+    background: white;
+    border: 1px solid orange;
+    border-radius: var(--radius);
+    padding: 5vh;
+    margin: 0 2vh;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.ticket-btn:hover {
+    background: orange;
+    transition: 0.3s ease-in;
+}
+
+.ticket-checkbox {
+    /* opacity: 0; */
+    pointer-events: none;
+
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+
+    font-size: 2em;
+    border: 1px solid black;
+    border-radius: 50%;
+    background: orange;
+}
+
+.ticket-or {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
