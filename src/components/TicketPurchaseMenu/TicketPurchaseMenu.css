@@ -217,3 +217,21 @@
 .purchase-ticket-grid>div {
     user-select: none;
 }
+
+.purchase-disclaimer-and-total-sum-container {
+    position: relative;
+    margin-top: 4vh;
+}
+
+.purchase-total-sum {
+    position: absolute;
+    right: 5vh;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.purchase-continue-btn {
+    position: absolute;
+    right: 5vh;
+    top: 10vh;
+}

@@ -106,9 +106,8 @@ const TicketPurchaseMenu = () => {
                 </div>
             </div>
             <div className="purchase-disclaimer-and-total-sum-container">
-                <div className="purchase-disclaimer"></div>
-                <div className="purchase-total-sum"></div>
-                {/* <button className="purchase-continue-btn">Continue</button> */}
+                <div className="purchase-total-sum">Total Sum: ${(projection?.price.regular * regularTickets + projection?.price.students * studentTickets).toFixed(2)}</div>
+                <div className="purchase-continue-btn">Continue</div>
             </div>
         </div>
     );
