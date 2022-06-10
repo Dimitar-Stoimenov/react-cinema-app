@@ -49,7 +49,7 @@
 }
 
 .ticket-checkbox {
-    /* opacity: 0; */
+    opacity: 0;
     pointer-events: none;
 
     position: absolute;
@@ -63,9 +63,45 @@
     background: orange;
 }
 
+.activated-tick {
+    opacity: 1;
+}
+
+.activated-ticket {
+    background-color: orange;
+}
+
 .ticket-or {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
+}
+
+.purchase-info-container {
+    display: flex;
+    margin-top: 5vh;
+}
+
+.purchase-projection-info {
+    flex-basis: 40%;
+    display: flex;
+    line-height: 1.4em;
+}
+
+.purchase-ticket-type-menu {
+    flex-basis: 60%;
+}
+
+.purchase-projection-info-headers {
+    flex-basis: 25%;
+}
+
+.purchase-projection-info-contents {
+    flex-basis: 75%;
+}
+
+.info-movie-title {
+    max-height: 2.3vh;
+    overflow: hidden;
 }
