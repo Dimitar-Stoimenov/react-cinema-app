@@ -1,3 +1,5 @@
+import './TicketPurchaseStage.css';
+
 const TicketPurchaseStage = ({ stage }) => {
 
     return (

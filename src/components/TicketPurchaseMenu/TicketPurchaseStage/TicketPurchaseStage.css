@@ -1,0 +1,17 @@
+.purchase-stage {
+    display: flex;
+    margin-bottom: 4vh;
+    font-size: 1.4rem;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.purchase-stage>div {
+    /* flex: 1; */
+    padding: 10px 0;
+    color: var(--clr-gray300);
+}
+
+.purchase-stage .active-stage {
+    color: black;
+}

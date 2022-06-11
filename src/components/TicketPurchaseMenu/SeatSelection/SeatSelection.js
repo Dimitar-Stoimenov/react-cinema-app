@@ -1,7 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
+
+import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
+import HallVisualization from "../HallVisualization/HallVisualization";
+
 import "./SeatSelection.css";
 
 const SeatSelection = () => {
+    const stage = 2;
     const location = useLocation();
     const navigate = useNavigate();
     const projection = location.state.projection;
@@ -11,8 +16,9 @@ const SeatSelection = () => {
     }
 
     return (
-        <div>
-           hello moto
+        <div className="seat-selection-container">
+            <TicketPurchaseStage stage={stage} />
+            <HallVisualization projection={projection} totalTickets={location.state.regularTickets + location.state.studentTickets} activeTicketState={location.state.activeTicketState}/>
         </div>
     )
 }

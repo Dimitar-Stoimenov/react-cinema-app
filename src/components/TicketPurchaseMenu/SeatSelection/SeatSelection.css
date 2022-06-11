@@ -1,0 +1,6 @@
+.seat-selection-container {
+    width: var(--content-width);
+    margin: 0 auto;
+    padding: 13vh;
+    height: 100vh;
+}
