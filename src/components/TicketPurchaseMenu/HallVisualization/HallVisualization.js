@@ -1,6 +1,9 @@
+import { useEffect, useRef } from "react";
+
 import "./HallVisualization.css";
 
 const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
+    const elementRef = useRef({});
     let projectionType = null;
 
     if (projection.hallId.hallName === "IMAX 3D") {
@@ -10,6 +13,10 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
     } else {
         projectionType = "2D";
     }
+
+    useEffect(() => {
+        populateSeats();
+    }, [populateSeats])
 
     function visualizeSeats() {
         let row1 = [];
@@ -67,46 +74,46 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
         }
 
         for (let index = 0; index < projection.hallId.seats.row1; index++) {
-            row1.push(<div onClick={clickedSeat} data-row="1" data-seat={index + 1} className={"div" + Number(row1start + index)} key={"div" + Number(row1start + index)}>{index + 1}</div>);
+            row1.push(<div ref={el => elementRef.current["row1-seat" + Number(index + 1)] = el} onClick={clickedSeat} id={"row1-seat" + Number(index + 1)} data-row="1" data-seat={index + 1} className={"div" + Number(row1start + index)} key={"div" + Number(row1start + index)}>{index + 1}</div>);
         }
 
         for (let index = 0; index < projection.hallId.seats.row2; index++) {
-            row2.push(<div onClick={clickedSeat} data-row="2" data-seat={index + 1} className={"div" + Number(row2start + index)} key={"div" + Number(row2start + index)}>{index + 1}</div>);
+            row2.push(<div ref={el => elementRef.current["row2-seat" + Number(index + 1)] = el} onClick={clickedSeat} id={"row2-seat" + Number(index + 1)} data-row="2" data-seat={index + 1} className={"div" + Number(row2start + index)} key={"div" + Number(row2start + index)}>{index + 1}</div>);
         }
 
         for (let index = 0; index < projection.hallId.seats.row3; index++) {
-            row3.push(<div onClick={clickedSeat} data-row="3" data-seat={index + 1} className={"div" + Number(row3start + index)} key={"div" + Number(row3start + index)}>{index + 1}</div>);
+            row3.push(<div ref={el => elementRef.current["row3-seat" + Number(index + 1)] = el} onClick={clickedSeat} id={"row3-seat" + Number(index + 1)} data-row="3" data-seat={index + 1} className={"div" + Number(row3start + index)} key={"div" + Number(row3start + index)}>{index + 1}</div>);
         }
 
         for (let index = 0; index < projection.hallId.seats.row4; index++) {
-            row4.push(<div onClick={clickedSeat} data-row="4" data-seat={index + 1} className={"div" + Number(row4start + index)} key={"div" + Number(row4start + index)}>{index + 1}</div>);
+            row4.push(<div ref={el => elementRef.current["row4-seat" + Number(index + 1)] = el} onClick={clickedSeat} id={"row4-seat" + Number(index + 1)} data-row="4" data-seat={index + 1} className={"div" + Number(row4start + index)} key={"div" + Number(row4start + index)}>{index + 1}</div>);
         }
 
         for (let index = 0; index < projection.hallId.seats.row5; index++) {
-            row5.push(<div onClick={clickedSeat} data-row="5" data-seat={index + 1} className={"div" + Number(row5start + index)} key={"div" + Number(row5start + index)}>{index + 1}</div>);
+            row5.push(<div ref={el => elementRef.current["row5-seat" + Number(index + 1)] = el} onClick={clickedSeat} id={"row5-seat" + Number(index + 1)} data-row="5" data-seat={index + 1} className={"div" + Number(row5start + index)} key={"div" + Number(row5start + index)}>{index + 1}</div>);
         }
 
         for (let index = 0; index < projection.hallId.seats.row6; index++) {
-            row6.push(<div onClick={clickedSeat} data-row="6" data-seat={index + 1} className={"div" + Number(row6start + index)} key={"div" + Number(row6start + index)}>{index + 1}</div>);
+            row6.push(<div ref={el => elementRef.current["row6-seat" + Number(index + 1)] = el} onClick={clickedSeat} id={"row6-seat" + Number(index + 1)} data-row="6" data-seat={index + 1} className={"div" + Number(row6start + index)} key={"div" + Number(row6start + index)}>{index + 1}</div>);
         }
 
         for (let index = 0; index < projection.hallId.seats.row7; index++) {
-            row7.push(<div onClick={activeTicketState === "reserve" && projectionType=== "2D" ? null : clickedSeat} data-row="7" data-seat={index + 1} className={activeTicketState === "reserve" && projectionType === "2D" ? ("div" + Number(row7start + index) + " " + "only-buy") : "div" + Number(row7start + index)} key={"div" + Number(row7start + index)}>{index + 1}</div>);
+            row7.push(<div ref={el => elementRef.current["row7-seat" + Number(index + 1)] = el} onClick={activeTicketState === "reserve" && projectionType === "2D" ? null : clickedSeat} id={"row7-seat" + Number(index + 1)} data-row="7" data-seat={index + 1} className={activeTicketState === "reserve" && projectionType === "2D" ? ("div" + Number(row7start + index) + " only-buy") : "div" + Number(row7start + index)} key={"div" + Number(row7start + index)}>{index + 1}</div>);
         }
 
         for (let index = 0; index < projection.hallId.seats.row8; index++) {
-            row8.push(<div onClick={activeTicketState !== "reserve" ? clickedSeat : null} data-row="8" data-seat={index + 1} className={activeTicketState === "reserve" ? ("div" + Number(row8start + index) + " " + "only-buy") : "div" + Number(row8start + index)} key={"div" + Number(row8start + index)}>{index + 1}</div>);
+            row8.push(<div ref={el => elementRef.current["row8-seat" + Number(index + 1)] = el} onClick={activeTicketState !== "reserve" ? clickedSeat : null} id={"row8-seat" + Number(index + 1)} data-row="8" data-seat={index + 1} className={activeTicketState === "reserve" ? ("div" + Number(row8start + index) + " only-buy") : "div" + Number(row8start + index)} key={"div" + Number(row8start + index)}>{index + 1}</div>);
         }
 
         if (projectionType !== "2D") {
             for (let index = 0; index < projection.hallId.seats.row9; index++) {
-                row9.push(<div onClick={activeTicketState !== "reserve" ? clickedSeat : null} data-row="9" data-seat={index + 1} className={activeTicketState === "reserve" ? ("div" + Number(row9start + index) + " " + "only-buy") : "div" + Number(row9start + index)} key={"div" + Number(row9start + index)}>{index + 1}</div>);
+                row9.push(<div ref={el => elementRef.current["row9-seat" + Number(index + 1)] = el} onClick={activeTicketState !== "reserve" ? clickedSeat : null} id={"row9-seat" + Number(index + 1)} data-row="9" data-seat={index + 1} className={activeTicketState === "reserve" ? ("div" + Number(row9start + index) + " only-buy") : "div" + Number(row9start + index)} key={"div" + Number(row9start + index)}>{index + 1}</div>);
             }
         }
 
         if (projectionType === "3D") {
             for (let index = 0; index < projection.hallId.seats.row10; index++) {
-                row10.push(<div onClick={activeTicketState !== "reserve" ? clickedSeat : null} data-row="10" data-seat={index + 1} className={activeTicketState === "reserve" ? ("div" + Number(row10start + index) + " " + "only-buy") : "div" + Number(row10start + index)} key={"div" + Number(row10start + index)}>{index + 1}</div>);
+                row10.push(<div ref={el => elementRef.current["row10-seat" + Number(index + 1)] = el} onClick={activeTicketState !== "reserve" ? clickedSeat : null} id={"row10-seat" + Number(index + 1)} data-row="10" data-seat={index + 1} className={activeTicketState === "reserve" ? ("div" + Number(row10start + index) + " only-buy") : "div" + Number(row10start + index)} key={"div" + Number(row10start + index)}>{index + 1}</div>);
             }
         }
 
@@ -127,7 +134,23 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
     }
 
     function clickedSeat(e) {
-        console.log(e.target);
+        if (e.target.classList.contains('taken')) return;
+        
+        console.log(e.target.classList);
+    }
+
+    function populateSeats() {
+        projection.occupiedSeats.row1?.map(x => elementRef.current[`row1-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row1?.map(x => elementRef.current[`row1-seat${x}`].removeEventListener('click', clickedSeat));
+        projection.occupiedSeats.row2?.map(x => elementRef.current[`row2-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row3?.map(x => elementRef.current[`row3-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row4?.map(x => elementRef.current[`row4-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row5?.map(x => elementRef.current[`row5-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row6?.map(x => elementRef.current[`row6-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row7?.map(x => elementRef.current[`row7-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row8?.map(x => elementRef.current[`row8-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row9?.map(x => elementRef.current[`row9-seat${x}`].classList.add('taken'));
+        projection.occupiedSeats.row10?.map(x => elementRef.current[`row10-seat${x}`].classList.add('taken'));
     }
 
     return (
