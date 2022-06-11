@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BsFillDashSquareFill, BsFillPlusSquareFill } from "react-icons/bs";
 
 import * as projectionService from "../../services/projectionService";
@@ -9,10 +9,12 @@ import { parseHour, parseDate } from "../../utils/utils";
 import "./TicketPurchaseMenu.css";
 
 const TicketPurchaseMenu = () => {
+    const navigate = useNavigate();
+    const stage = 1;
+    const { projectionId } = useParams();
+    
     const [projection, setProjection] = useState();
     const [activeTicketState, setActiveTicketState] = useState(null);
-    const { projectionId } = useParams();
-    const stage = 1;
 
     const [regularTickets, setRegularTickets] = useState(0);
     const [studentTickets, setStudentTickets] = useState(0);
@@ -40,6 +42,22 @@ const TicketPurchaseMenu = () => {
         }
 
         return x + 1;
+    }
+
+    function continueToSeatSelection() {
+        if (activeTicketState === null) {
+            return alert('Please select the type of tickets you wish to buy.')
+        }
+
+        if ((regularTickets + studentTickets) === 0) {
+            return alert('You have not selected any tickets.');
+        }
+
+        if ((regularTickets + studentTickets) > maxTicketCount) {
+            return alert('You have selected more tickets than the maximum amount!');
+        }
+
+        navigate(`/projections/id/${projectionId}/seat-selection`, {state: {projection, regularTickets, studentTickets, activeTicketState, maxTicketCount}});
     }
 
     return (
@@ -107,7 +125,7 @@ const TicketPurchaseMenu = () => {
             </div>
             <div className="purchase-disclaimer-and-total-sum-container">
                 <div className="purchase-total-sum">Total Sum: ${(projection?.price.regular * regularTickets + projection?.price.students * studentTickets).toFixed(2)}</div>
-                <div className="purchase-continue-btn">Continue</div>
+                <div className="purchase-continue-btn" onClick={continueToSeatSelection}>Continue</div>
             </div>
         </div>
     );

@@ -234,4 +234,16 @@
     position: absolute;
     right: 5vh;
     top: 10vh;
+    border: 1px solid black;
+    border-radius: var(--radius);
+    padding: 1.5vh 2vh;
+    background-color: rgb(244, 151, 2);
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+}
+
+.purchase-continue-btn:hover {
+    background-color: orange;
+    transition: 0.3s;
 }
