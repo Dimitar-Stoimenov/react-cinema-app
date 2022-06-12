@@ -193,9 +193,13 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
         projection.occupiedSeats.row10?.map(x => elementRef.current[`row10-seat${x}`].classList.add('taken'));
     }
 
+    function continueToPayment() {
+        
+    }
+
     return (
         <div className="hall-visualization-container">
-            <section className="screen-visualization">SCREEN</section>
+            <section className="screen-visualization"></section>
             <section className="row1">1</section>
             <section className="row2">2</section>
             <section className="row3">3</section>
@@ -207,6 +211,7 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
             {projectionType !== "2D" ? <section className="row9">9</section> : ""}
             {projectionType === "3D" ? <section className="row10">10</section> : ""}
             {visualizeSeats()}
+            <div className="visualization-continue-btn" onClick={continueToPayment}>Continue</div>
         </div>
     );
 }

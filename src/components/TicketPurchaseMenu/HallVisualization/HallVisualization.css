@@ -1,7 +1,8 @@
 .hall-visualization-container {
+    position: relative;
     display: grid;
     grid-template-columns: 2fr repeat(27, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: 0.5fr 1fr repeat(10, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     height: 70vh;
@@ -25,11 +26,11 @@
 
     .screen-visualization { 
         grid-area: 1 / 1 / 2 / 29; 
-        font-size: 0.7rem;
-        line-height: 1.1em;
-        text-align: center;
-        margin: auto 0;
-        padding: 5px 0;
+        /* font-size: 0.7rem; */
+        /* line-height: 1.1em; */
+        /* text-align: center; */
+        /* margin: auto 0; */
+        /* padding: 5px 0; */
         border: 1px solid black;
         background-color: white;
         user-select: none;
@@ -47,6 +48,20 @@
     
     .selected {
         background-color: orange !important;
+    }
+
+    .visualization-continue-btn {
+        position: absolute;
+        right: -20%;
+        bottom: 5%;
+        border: 1px solid black;
+        border-radius: var(--radius);
+        padding: 1.5vh 2vh !important;
+        background-color: rgb(244, 151, 2) !important;
+        font-size: 1.1rem !important;
+        font-weight: bold !important;
+        user-select: none !important;
+        cursor: pointer !important;
     }
     
     .div1 { grid-area: 3 / 2 / 4 / 3; }
