@@ -12,7 +12,7 @@ const TicketPurchaseMenu = () => {
     const stage = 1;
     const navigate = useNavigate();
     const { projectionId } = useParams();
-    
+
     const [projection, setProjection] = useState();
     const [activeTicketState, setActiveTicketState] = useState(null);
 
@@ -57,7 +57,7 @@ const TicketPurchaseMenu = () => {
             return alert('You have selected more tickets than the maximum amount!');
         }
 
-        navigate(`/projections/id/${projectionId}/seat-selection`, {state: {projection, regularTickets, studentTickets, activeTicketState, maxTicketCount}});
+        navigate(`/projections/id/${projectionId}/seat-selection`, { state: { projection, totalTickets: (regularTickets + studentTickets), activeTicketState, maxTicketCount, totalPrice: (projection?.price.regular * regularTickets + projection?.price.students * studentTickets) } });
     }
 
     return (
