@@ -45,6 +45,10 @@
         cursor:not-allowed !important;
     }
     
+    .selected {
+        background-color: orange !important;
+    }
+    
     .div1 { grid-area: 3 / 2 / 4 / 3; }
     .div2 { grid-area: 3 / 3 / 4 / 4; }
     .div3 { grid-area: 3 / 4 / 4 / 5; }

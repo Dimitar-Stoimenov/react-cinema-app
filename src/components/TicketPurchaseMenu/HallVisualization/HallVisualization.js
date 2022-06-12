@@ -1,9 +1,23 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import "./HallVisualization.css";
 
 const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
     const elementRef = useRef({});
+    const [selectedSeatsObj, setSelectedSeatsObj] = useState({
+        row1: [],
+        row2: [],
+        row3: [],
+        row4: [],
+        row5: [],
+        row6: [],
+        row7: [],
+        row8: [],
+        row9: [],
+        row10: [],
+    });
+    const [selectedSeatsCount, setSelectedSeatsCount] = useState(0);
+
     let projectionType = null;
 
     if (projection.hallId.hallName === "IMAX 3D") {
@@ -135,13 +149,39 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState }) => {
 
     function clickedSeat(e) {
         if (e.target.classList.contains('taken')) return;
-        
-        console.log(e.target.classList);
+
+        let rowString = e.target.id.split('-')[0];
+        let seat = Number(e.target.id.split('-')[1].replace('seat', ""));
+
+        if (e.target.classList.contains('selected')) {
+            e.target.classList.remove('selected');
+            setSelectedSeatsCount(x => x - 1);
+            return modifySelectedSeatState(rowString, seat, "remove");
+        }
+
+        if (selectedSeatsCount >= totalTickets) {
+            return alert(`You have already selected ${totalTickets} seats.`)
+        }
+
+        e.target.classList.add('selected');
+        setSelectedSeatsCount(x => x + 1);
+        return modifySelectedSeatState(rowString, seat, "add");
+    }
+
+    function modifySelectedSeatState(row, seat, action) {
+        let stateObj = JSON.parse(JSON.stringify(selectedSeatsObj)); //cloning object...
+
+        if (action === "add") {
+            stateObj[row].push(seat);
+            setSelectedSeatsObj(stateObj);
+        } else if (action === "remove") {
+            stateObj[row] = stateObj[row].filter(x => x !== seat);
+            setSelectedSeatsObj(stateObj);
+        }
     }
 
     function populateSeats() {
         projection.occupiedSeats.row1?.map(x => elementRef.current[`row1-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row1?.map(x => elementRef.current[`row1-seat${x}`].removeEventListener('click', clickedSeat));
         projection.occupiedSeats.row2?.map(x => elementRef.current[`row2-seat${x}`].classList.add('taken'));
         projection.occupiedSeats.row3?.map(x => elementRef.current[`row3-seat${x}`].classList.add('taken'));
         projection.occupiedSeats.row4?.map(x => elementRef.current[`row4-seat${x}`].classList.add('taken'));
