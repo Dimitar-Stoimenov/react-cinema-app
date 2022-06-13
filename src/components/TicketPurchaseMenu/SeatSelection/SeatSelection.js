@@ -8,12 +8,11 @@ import "./SeatSelection.css";
 const SeatSelection = () => {
     const stage = 2;
     const location = useLocation();
-    const projection = location.state.projection;
 
     return (
-        <div className="seat-selection-container">
+        <div className="purchase-container">
             <TicketPurchaseStage stage={stage} />
-            <HallVisualization projection={projection} totalTickets={location.state.totalTickets} activeTicketState={location.state.activeTicketState} totalPrice={location.state.totalPrice}/>
+            <HallVisualization projection={location.state.projection} totalTickets={location.state.totalTickets} regularTickets={location.state.regularTickets} studentTickets={location.state.studentTickets} activeTicketState={location.state.activeTicketState} totalPrice={location.state.totalPrice}/>
         </div>
     )
 }

@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, useNavigate } from 'react-router-dom';
+import { ErrorBoundary } from 'react-error-boundary'
 
-import ErrorBoundary from "./services/ErrorBoundary";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+function ErrorFallback({ error, resetErrorBoundary }) {
+  const navigate = useNavigate();
+  let path = window.location.pathname.split('/');
+  path.pop();
+  path = path.join('/');
+
+  useEffect(() => {
+    navigate(path);
+    resetErrorBoundary();
+  });
+
+  return (
+    <div role="alert">
+      <p>Something went wrong.</p>
+      <pre>{error.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ErrorBoundary>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
         <App />
-      </ErrorBoundary>
+      </ErrorBoundary >
     </BrowserRouter>
   </React.StrictMode>
 );

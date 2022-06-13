@@ -57,7 +57,7 @@ const TicketPurchaseMenu = () => {
             return alert('You have selected more tickets than the maximum amount!');
         }
 
-        navigate(`/projections/id/${projectionId}/seat-selection`, { state: { projection, totalTickets: (regularTickets + studentTickets), activeTicketState, maxTicketCount, totalPrice: (projection?.price.regular * regularTickets + projection?.price.students * studentTickets) } });
+        navigate(`/projections/id/${projectionId}/seat-selection`, { state: { projection, totalTickets: (regularTickets + studentTickets), regularTickets, studentTickets, activeTicketState, maxTicketCount, totalPrice: (projection?.price.regular * regularTickets + projection?.price.students * studentTickets) } });
     }
 
     return (

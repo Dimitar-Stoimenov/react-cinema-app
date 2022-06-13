@@ -13,6 +13,7 @@ import Program from './components/Program/Program';
 import TicketPurchaseMenu from './components/TicketPurchaseMenu/TicketPurchaseMenu';
 import CreateSuccess from './components/Create/CreateSuccess/CreateSuccess';
 import SeatSelection from './components/TicketPurchaseMenu/SeatSelection/SeatSelection';
+import Payment from './components/TicketPurchaseMenu/Payment/Payment';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
         <Route path="/projections/program/:date" element={<Program />} />
         <Route path="/projections/id/:projectionId" element={<TicketPurchaseMenu />} />
         <Route path="/projections/id/:projectionId/seat-selection" element={<SeatSelection />} />
+        <Route path="/projections/id/:projectionId/payment" element={<Payment />} />
       </Routes>
 
       <Footer />

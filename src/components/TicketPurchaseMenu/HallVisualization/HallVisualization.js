@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import "./HallVisualization.css";
 
-const HallVisualization = ({ projection, totalTickets, activeTicketState, totalPrice }) => {
+const HallVisualization = ({ projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets }) => {
     const navigate = useNavigate();
     const elementRef = useRef({});
+    const { projectionId } = useParams();
     const [selectedSeatsObj, setSelectedSeatsObj] = useState({
         row1: [],
         row2: [],
@@ -32,7 +33,7 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState, totalP
 
     useEffect(() => {
         populateSeats();
-    }, [populateSeats])
+    }, [])
 
     function visualizeSeats() {
         let row1 = [];
@@ -199,8 +200,8 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState, totalP
         if (selectedSeatsCount !== totalTickets) {
             return alert('You have not selected enough seats.');
         };
-        
-        console.log(totalPrice)
+
+        navigate(`/projections/id/${projectionId}/payment`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets } });
     }
 
     return (

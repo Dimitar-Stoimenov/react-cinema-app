@@ -17,8 +17,21 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
         "NC-17": "No One 17 and Under Admitted."
     }
 
+    let today = new Date();
+
     function checkIfItIsToday() {
-        if (parseDate(date) === parseDate(new Date())) {
+        if (parseDate(date) === parseDate(today)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkIfItsBeforeToday() {
+        let dateCopy = new Date(date);
+        let dateNextDayStart = new Date(dateCopy.setDate(dateCopy.getDate() + 1));
+
+        if (dateNextDayStart < today) {
             return true;
         } else {
             return false;
@@ -78,7 +91,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
                             return (
                                 <Fragment key={projection._id}>
-                                    <button onClick={() => clickProjection(projection._id)} className={checkIfItIsToday() && currentTime > projection.hour ? `disabled btn${index} custom-btn-program btn-4` : `btn${index} custom-btn-program btn-4`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
+                                    <button onClick={() => clickProjection(projection._id)} className={checkIfItsBeforeToday() || (checkIfItIsToday() && currentTime > projection.hour) ? `disabled btn${index} custom-btn-program btn-4` : `btn${index} custom-btn-program btn-4`}>{parseHour(projection.hour)} - {returnHallType(projection.hallId.hallName)}</button>
                                     <div className={"info" + index}>{"$" + projection.price.regular}/{"$" + projection.price.students}</div>
                                 </Fragment>
                             )
