@@ -32,8 +32,20 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState, totalP
     }
 
     useEffect(() => {
+        function populateSeats() {
+            projection.occupiedSeats.row1?.map(x => elementRef.current[`row1-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row2?.map(x => elementRef.current[`row2-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row3?.map(x => elementRef.current[`row3-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row4?.map(x => elementRef.current[`row4-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row5?.map(x => elementRef.current[`row5-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row6?.map(x => elementRef.current[`row6-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row7?.map(x => elementRef.current[`row7-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row8?.map(x => elementRef.current[`row8-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row9?.map(x => elementRef.current[`row9-seat${x}`].classList.add('taken'));
+            projection.occupiedSeats.row10?.map(x => elementRef.current[`row10-seat${x}`].classList.add('taken'));
+        }
         populateSeats();
-    }, [])
+    }, [projection])
 
     function visualizeSeats() {
         let row1 = [];
@@ -183,25 +195,12 @@ const HallVisualization = ({ projection, totalTickets, activeTicketState, totalP
         }
     }
 
-    function populateSeats() {
-        projection.occupiedSeats.row1?.map(x => elementRef.current[`row1-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row2?.map(x => elementRef.current[`row2-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row3?.map(x => elementRef.current[`row3-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row4?.map(x => elementRef.current[`row4-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row5?.map(x => elementRef.current[`row5-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row6?.map(x => elementRef.current[`row6-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row7?.map(x => elementRef.current[`row7-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row8?.map(x => elementRef.current[`row8-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row9?.map(x => elementRef.current[`row9-seat${x}`].classList.add('taken'));
-        projection.occupiedSeats.row10?.map(x => elementRef.current[`row10-seat${x}`].classList.add('taken'));
-    }
-
     function continueToPayment() {
         if (selectedSeatsCount !== totalTickets) {
             return alert('You have not selected enough seats.');
         };
 
-        navigate(`/projections/id/${projectionId}/payment`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets } });
+        navigate(`/projections/id/${projectionId}/payment`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj } });
     }
 
     return (
