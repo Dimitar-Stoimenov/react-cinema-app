@@ -40,18 +40,33 @@ const Payment = () => {
                     </ul>
                 </div>
                 <div className="total-price">Total Price: {"$" + totalPrice.toFixed(2)}</div>
-                <div className="credit-card-payment-container">
-                    <div className="pay1">Enter your card details:</div>
-                    <label forhtml="name" className="pay2">Name</label>
-                    <input id="name" className="pay3" type="text" placeholder="Enter your name" />
-                    <label forhtml="ccn" className="pay4">Credit Card Number</label>
-                    <input id="ccn" className="pay5" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="19" placeholder="0000 0000 0000 0000" />
-                    <label forhtml="exp-date" className="pay6">Exp. date</label>
-                    <input id="exp-date" className="pay7" type="tel" inputMode="numeric" maxLength="5" placeholder="00/00"/>
-                    <label forhtml="cvc" className="pay8">CVC</label>
-                    <input id="cvc" className="pay9" type="tel" placeholder="123" maxLength="3"/>
-                    <div className="pay10">Continue</div>
-                </div>
+                {activeTicketState === "buy"
+                    ? <div className="credit-card-payment-container">
+                        <div className="pay1">Enter your card details:</div>
+                        <label forhtml="name" className="pay2">Name</label>
+                        <input id="name" className="pay3" type="text" placeholder="Enter your name" />
+                        <label forhtml="ccn" className="pay4">Credit Card Number</label>
+                        <input id="ccn" className="pay5" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="19" placeholder="0000 0000 0000 0000" />
+                        <label forhtml="exp-date" className="pay6">Exp. date</label>
+                        <input id="exp-date" className="pay7" type="tel" inputMode="numeric" maxLength="5" placeholder="00/00" />
+                        <label forhtml="cvc" className="pay8">CVC</label>
+                        <input id="cvc" className="pay9" type="tel" placeholder="123" maxLength="3" />
+                        <div className="pay10">Continue</div>
+                    </div>
+                    : activeTicketState === "reserve"
+                        ? <div className="credit-card-payment-container">
+                            <div className="pay1">Enter your personal details:</div>
+                            <label forhtml="name" className="pay2">Name</label>
+                            <input id="name" className="pay3" type="text" placeholder="Enter your name" />
+                            <label forhtml="phone" className="pay4">Phone Number</label>
+                            <input id="phone" className="pay5" type="tel" maxLength="13" placeholder="0888123456" />
+                            <label forhtml="email-address" className="pay6">Email address</label>
+                            <input id="email-address" className="pay7" inputMode="text" maxLength="25" placeholder="Enter your email address" />
+                            <label forhtml="confirm-email" className="pay8">Confirm your email</label>
+                            <input id="confirm-email" className="pay9" placeholder="Confirm your email address" maxLength="25" />
+                            <div className="pay10">Continue</div>
+                        </div>
+                        : null}
             </div>
         </div>
     );
