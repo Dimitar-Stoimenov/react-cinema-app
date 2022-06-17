@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 
 import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
 import { parseDate, parseHour } from "../../../utils/utils";
+import { FaCcVisa, FaCcMastercard } from 'react-icons/fa';
 
 import "./Payment.css";
 import "./Payment-grid.css";
@@ -42,13 +43,14 @@ const Payment = () => {
                 <div className="total-price">Total Price: {"$" + totalPrice.toFixed(2)}</div>
                 {activeTicketState === "buy"
                     ? <div className="credit-card-payment-container">
-                        <div className="pay1">Enter your card details:</div>
+                        <div className="pay1">Enter your card details:  </div>
+                        <div className="credit-card-icons"><FaCcVisa /> <FaCcMastercard /></div>
                         <label forhtml="name" className="pay2">Name</label>
                         <input id="name" className="pay3" type="text" placeholder="Enter your name" />
                         <label forhtml="ccn" className="pay4">Credit Card Number</label>
                         <input id="ccn" className="pay5" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="19" placeholder="0000 0000 0000 0000" />
                         <label forhtml="exp-date" className="pay6">Exp. date</label>
-                        <input id="exp-date" className="pay7" type="tel" inputMode="numeric" maxLength="5" placeholder="00/00" />
+                        <input id="exp-date" className="pay7" type="tel" inputMode="numeric" maxLength="5" placeholder="05/24" />
                         <label forhtml="cvc" className="pay8">CVC</label>
                         <input id="cvc" className="pay9" type="tel" placeholder="123" maxLength="3" />
                         <div className="pay10">Continue</div>
@@ -56,6 +58,7 @@ const Payment = () => {
                     : activeTicketState === "reserve"
                         ? <div className="credit-card-payment-container">
                             <div className="pay1">Enter your personal details:</div>
+                            <div className="credit-card-icons"><FaCcVisa /> <FaCcMastercard /></div>
                             <label forhtml="name" className="pay2">Name</label>
                             <input id="name" className="pay3" type="text" placeholder="Enter your name" />
                             <label forhtml="phone" className="pay4">Phone Number</label>

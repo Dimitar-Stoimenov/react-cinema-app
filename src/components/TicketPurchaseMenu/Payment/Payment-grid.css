@@ -1,13 +1,25 @@
 .credit-card-payment-container {
-    margin-top: 5vh;
+    margin-top: 6vh;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: 1fr 0.25fr repeat(8, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 4px;
+    position: relative;
     }
+
     
-    .pay1 { grid-area: 1 / 1 / 2 / 21; }
+.credit-card-icons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2.75rem;
+}
+    
+    .pay1 {
+        grid-area: 1 / 1 / 2 / 21;
+        color: gray;
+    }
     .pay2 { grid-area: 3 / 1 / 4 / 21; }
     .pay3 { grid-area: 4 / 1 / 5 / 21; }
     .pay4 { grid-area: 6 / 1 / 7 / 21; }
