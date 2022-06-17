@@ -18,7 +18,10 @@
     
     .pay1 {
         grid-area: 1 / 1 / 2 / 21;
-        color: gray;
+        color:rgb(128, 128, 128, 0.85);
+        font-size: 1.15em;
+        font-weight: bold;
+        letter-spacing: 1.5px;
     }
     .pay2 { grid-area: 3 / 1 / 4 / 21; }
     .pay3 { grid-area: 4 / 1 / 5 / 21; }

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
 import { parseDate, parseHour } from "../../../utils/utils";
@@ -9,6 +9,7 @@ import "./Payment-grid.css";
 
 const Payment = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const stage = 3;
     const { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj } = location.state;
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -21,6 +22,16 @@ const Payment = () => {
             seatsInfo.push(`Row ${i + 1} - Seat ${seatsArr.join(', ')}`);
         }
     });
+
+    function onClickSubmitButton(e, type) {
+        e.preventDefault();
+
+        if (type === 'buy') {
+
+        } else if (type === "reserve") {
+
+        }
+    }
 
     return (
         <div className="purchase-container">
@@ -42,8 +53,8 @@ const Payment = () => {
                 </div>
                 <div className="total-price">Total Price: {"$" + totalPrice.toFixed(2)}</div>
                 {activeTicketState === "buy"
-                    ? <div className="credit-card-payment-container">
-                        <div className="pay1">Enter your card details:  </div>
+                    ? <form className="credit-card-payment-container" onSubmit={(e) => onClickSubmitButton(e, 'buy')}>
+                        <div className="pay1">Enter your card details</div>
                         <div className="credit-card-icons"><FaCcVisa /> <FaCcMastercard /></div>
                         <label forhtml="name" className="pay2">Name</label>
                         <input id="name" className="pay3" type="text" placeholder="Enter your name" />
@@ -53,11 +64,11 @@ const Payment = () => {
                         <input id="exp-date" className="pay7" type="tel" inputMode="numeric" maxLength="5" placeholder="05/24" />
                         <label forhtml="cvc" className="pay8">CVC</label>
                         <input id="cvc" className="pay9" type="tel" placeholder="123" maxLength="3" />
-                        <div className="pay10">Continue</div>
-                    </div>
+                        <button className="pay10" type="submit">Continue</button>
+                    </form>
                     : activeTicketState === "reserve"
-                        ? <div className="credit-card-payment-container">
-                            <div className="pay1">Enter your personal details:</div>
+                        ? <form className="credit-card-payment-container" onSubmit={(e) => onClickSubmitButton(e, 'reserve')}>
+                            <div className="pay1">Enter your personal details</div>
                             <div className="credit-card-icons"><FaCcVisa /> <FaCcMastercard /></div>
                             <label forhtml="name" className="pay2">Name</label>
                             <input id="name" className="pay3" type="text" placeholder="Enter your name" />
@@ -67,8 +78,8 @@ const Payment = () => {
                             <input id="email-address" className="pay7" inputMode="text" maxLength="25" placeholder="Enter your email address" />
                             <label forhtml="confirm-email" className="pay8">Confirm your email</label>
                             <input id="confirm-email" className="pay9" placeholder="Confirm your email address" maxLength="25" />
-                            <div className="pay10">Continue</div>
-                        </div>
+                            <button className="pay10" type="submit">Continue</button>
+                        </form>
                         : null}
             </div>
         </div>
