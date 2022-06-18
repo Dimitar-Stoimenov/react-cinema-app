@@ -87,9 +87,9 @@
 }
 
 .program-movie-rating {
+    color: #ff9100;
     flex: 1.2;
     font-size: 1.6rem;
-    font-weight: bold;
     padding-left: 5%;
     text-align: end;
 }
