@@ -159,7 +159,7 @@ const Program = () => {
             </ul>
             <div className="program-content">
                 <div className="program-movie-card-wrapper">
-                    <ProgramSortByMovie projections={projections} date={selectedDate}/>
+                    <ProgramSortByMovie projections={projections} date={selectedDate} />
                 </div>
             </div>
         </div>
