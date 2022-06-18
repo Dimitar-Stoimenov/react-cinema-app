@@ -69,7 +69,6 @@ const Payment = () => {
                     : activeTicketState === "reserve"
                         ? <form className="credit-card-payment-container" onSubmit={(e) => onClickSubmitButton(e, 'reserve')}>
                             <div className="pay1">Enter your personal details</div>
-                            <div className="credit-card-icons"><FaCcVisa /> <FaCcMastercard /></div>
                             <label forhtml="name" className="pay2">Name</label>
                             <input id="name" className="pay3" type="text" placeholder="Enter your name" />
                             <label forhtml="phone" className="pay4">Phone Number</label>
