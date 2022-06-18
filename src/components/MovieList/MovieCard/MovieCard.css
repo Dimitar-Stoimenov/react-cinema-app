@@ -55,6 +55,8 @@
 
 .movie-rating {
     margin-left: 6px;
+    font-size: 1.1em;
+    /* color: #ffa500; */
 }
 
 .movie-tags {

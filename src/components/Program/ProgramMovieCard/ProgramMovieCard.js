@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { Fragment, useState } from 'react';
-import { MdStar, MdStarHalf, MdStarBorder } from "react-icons/md";
 
 import { parseDate, parseHour, standartizeHour } from '../../../utils/utils';
 
+import MovieRating from '../../MovieRating/MovieRating';
 import './ProgramMovieCard.css';
 import './Grid.css';
 
@@ -69,30 +69,6 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
         window.scrollTo(0, 0);
     }
 
-    function returnStarsRatingComponent(rating) {
-        rating = round(rating, 0.5);
-
-        function round(value, step) {
-            step || (step = 1.0);
-            let inv = 1.0 / step;
-            return Math.round(value * inv) / inv;
-        }
-
-        let resultArray = [];
-
-        for (let index = 1; index <= 5; index++) {
-            if (rating >= index) {
-                resultArray.push(<MdStar />);
-            } else if (rating >= (index - 0.5)) {
-                resultArray.push(<MdStarHalf />);
-            } else if (rating < index) {
-                resultArray.push(<MdStarBorder />);
-            }
-        }
-
-        return resultArray;
-    }
-
     return (
         <div className="program-movie-card">
             <div className="program-movie-tab">
@@ -110,7 +86,7 @@ const ProgramMovieCard = ({ movieId, projectionsArray, date }) => {
                             {visible && <div className="program-movie-category-hover-hidden" >{categoriesExplained[projectionsArray[0].movieId.movieCategory]}</div>}
                         </div>
 
-                        <div className="program-movie-rating">{returnStarsRatingComponent(projectionsArray[0].movieId.movieRating)}</div>
+                        <div className="program-movie-rating"><MovieRating rating={projectionsArray[0].movieId.movieRating} /></div>
                     </div>
                     <div className={projectionsArray.length < 5 ? "program-movie-projections-grid-smaller" : "program-movie-projections-grid"}>
                         {projectionsArray.sort((a, b) => a.hour - b.hour).map((projection, index) => {
