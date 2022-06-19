@@ -73,14 +73,19 @@ const Finish = () => {
                         {regularTickets > 0
                             ? <div className="ticket-info-ticket-type-regular">Regular x {regularTickets}</div>
                             : null}
+                        {regularTickets > 0 && studentTickets > 0 ? <div className="mandatory-padding-for-whitespace">,</div> : null}
                         {studentTickets > 0
                             ? <div className="ticket-info-ticket-type-student">Student x {studentTickets}</div>
                             : null}
                     </div>
-                    <div className="ticket-info-seat-container">
-                        <div className="ticket-info-seat-header">Seat</div>
-                        {seatsInfo.map((rowInfo, i) => <div className="ticket-info-seat-content" key={i}>{rowInfo}</div>)}
-                    </div>
+                    {seatsInfo.map((rowInfo, i) =>
+                        <>
+                            <div className="ticket-info-seat-container">
+                                <div className="ticket-info-seat-header">Seat Info</div>
+                                <div className="ticket-info-seat-content" key={i}>{rowInfo}</div>
+                            </div>
+                        </>
+                    )}
                 </div>
                 <div className="delivery-information-title">Delivery information</div>
                 <div className="delivery-information-container">
@@ -92,7 +97,7 @@ const Finish = () => {
                 <div className="grand-total-sum">Grand Total ${totalPrice.toFixed(2)}</div>
                 <div className="terms-and-conditions">
                     <input type="checkbox" id="terms" />
-                    <label htmlFor="terms">I have read and agree to CineBear's General Terms and Conditions</label>
+                    <label htmlFor="terms">I have read and agree to the General Terms and Conditions</label>
                 </div>
                 <div className="finish-buttons">
                     <button className="finish-back">Back</button>
