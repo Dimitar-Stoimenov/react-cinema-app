@@ -44,7 +44,7 @@ const Payment = () => {
             let last4digits = ccn.value.slice(12);
             let newCreditCardNum = '*'.repeat(8) + last4digits;
 
-            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, newCreditCardNum, name: name.value, expDate } });
+            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, newCreditCardNum, name: name.value, expDate, email: 'n/a', phone: 'n/a' } });
         } else if (type === "reserve") {
             const { name, phone, "email-address": email, "confirm-email": confirm } = e.target.elements;
 
@@ -56,7 +56,7 @@ const Payment = () => {
                 return alert('Name cannot be shorter than 3 characters.');
             }
 
-            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, name: name.value, email: email.value, phone: phone.value } });
+            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, newCreditCardNum: 'n/a', name: name.value, expDate: 'n/a', email: email.value, phone: phone.value } });
         }
     }
 
