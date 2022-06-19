@@ -1,0 +1,8 @@
+.finish-container {
+    width: 55%;
+    margin: 8vh auto 0;
+    padding: 2vh;
+    border: 1px solid black;
+    border-radius: var(--radius);
+    background-color: white;
+}

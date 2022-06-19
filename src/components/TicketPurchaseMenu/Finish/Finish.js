@@ -10,12 +10,14 @@ const Finish = () => {
     const { projectionId } = useParams();
 
     const stage = 4;
-    const { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, newCreditCardNum, name, expDate, email, phone } = location.state;
+    const { totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, ccn, name, expDate, email, phone } = location.state;
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     return (
         <div className="purchase-container">
             <TicketPurchaseStage stage={stage} />
+            <div className="finish-container">
+            </div>
         </div>
     )
 }

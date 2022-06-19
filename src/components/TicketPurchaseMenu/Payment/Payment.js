@@ -37,14 +37,18 @@ const Payment = () => {
                 return alert('Please enter a valid CVC.');
             } else if (name.value.length < 3) {
                 return alert('Name cannot be shorter than 3 characters.');
-            } else if (expDate.value[2] !== "/" || Number(expDate.value[0].concat(expDate.value[1])) > 12 || Number(expDate.value[0].concat(expDate.value[1])) === 0) {
+            } else if (expDate.value[2] !== "/" || Number(expDate.value[0].concat(expDate.value[1])) > 12 || Number(expDate.value[0].concat(expDate.value[1])) === 0 || Number(expDate.value[3].concat(expDate.value[4])) < 22) {
                 return alert('Please enter a valid expiration date in the format "month/year".');
             }
 
             let last4digits = ccn.value.slice(12);
             let newCreditCardNum = '*'.repeat(8) + last4digits;
+            let nameString = name.value;
+            let expDateString = expDate.value;
+            let emailString = 'n/a';
+            let phoneString = 'n/a';
 
-            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, newCreditCardNum, name: name.value, expDate, email: 'n/a', phone: 'n/a' } });
+            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, ccn: newCreditCardNum, name: nameString, expDate: expDateString, email: emailString, phone: phoneString } });
         } else if (type === "reserve") {
             const { name, phone, "email-address": email, "confirm-email": confirm } = e.target.elements;
 
@@ -56,7 +60,13 @@ const Payment = () => {
                 return alert('Name cannot be shorter than 3 characters.');
             }
 
-            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, newCreditCardNum: 'n/a', name: name.value, expDate: 'n/a', email: email.value, phone: phone.value } });
+            let newCreditCardNum = 'n/a';
+            let nameString = name.value;
+            let expDateString = 'n/a';
+            let emailString = email.value;
+            let phoneString = phone.value;
+
+            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, ccn: newCreditCardNum, name: nameString, expDate: expDateString, email: emailString, phone: phoneString } });
         }
     }
 
