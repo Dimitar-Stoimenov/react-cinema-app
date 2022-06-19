@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
 import { parseDate, parseHour } from "../../../utils/utils";
@@ -10,6 +10,8 @@ import "./Payment-grid.css";
 const Payment = () => {
     const location = useLocation();
     const navigate = useNavigate();
+    const { projectionId } = useParams();
+
     const stage = 3;
     const { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj } = location.state;
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -27,9 +29,34 @@ const Payment = () => {
         e.preventDefault();
 
         if (type === 'buy') {
+            const { name, ccn, "exp-date": expDate, cvc } = e.target.elements;
 
+            if (ccn.value.length < 16) {
+                return alert('Please enter a valid Credit card number.');
+            } else if (Number(cvc.value) < 0 || Number(cvc.value > 999) || isNaN(Number(cvc.value)) || !Number.isInteger(Number(cvc.value)) || cvc.value.length !== 3) {
+                return alert('Please enter a valid CVC.');
+            } else if (name.value.length < 3) {
+                return alert('Name cannot be shorter than 3 characters.');
+            } else if (expDate.value[2] !== "/" || Number(expDate.value[0].concat(expDate.value[1])) > 12 || Number(expDate.value[0].concat(expDate.value[1])) === 0) {
+                return alert('Please enter a valid expiration date in the format "month/year".');
+            }
+
+            let last4digits = ccn.value.slice(12);
+            let newCreditCardNum = '*'.repeat(8) + last4digits;
+
+            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, newCreditCardNum, name: name.value, expDate } });
         } else if (type === "reserve") {
+            const { name, phone, "email-address": email, "confirm-email": confirm } = e.target.elements;
 
+            if (email.value !== confirm.value) {
+                return alert('Emails don\'t match!');
+            } else if (phone.value.length < 7) {
+                return alert('Phone number must have atleast 7 digits.');
+            } else if (name.value.length < 3) {
+                return alert('Name cannot be shorter than 3 characters.');
+            }
+
+            navigate(`/projections/id/${projectionId}/finish`, { state: { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, name: name.value, email: email.value, phone: phone.value } });
         }
     }
 
@@ -53,13 +80,13 @@ const Payment = () => {
                 </div>
                 <div className="total-price">Total Price: {"$" + totalPrice.toFixed(2)}</div>
                 {activeTicketState === "buy"
-                    ? <form className="credit-card-payment-container" onSubmit={(e) => onClickSubmitButton(e, 'buy')}>
+                    ? <form method="POST" className="credit-card-payment-container" onSubmit={(e) => onClickSubmitButton(e, 'buy')}>
                         <div className="pay1">Enter your card details</div>
                         <div className="credit-card-icons"><FaCcVisa /> <FaCcMastercard /></div>
                         <label forhtml="name" className="pay2">Name</label>
                         <input id="name" className="pay3" type="text" placeholder="Enter your name" />
                         <label forhtml="ccn" className="pay4">Credit Card Number</label>
-                        <input id="ccn" className="pay5" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="19" placeholder="0000 0000 0000 0000" />
+                        <input id="ccn" className="pay5" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="16" placeholder="0000 0000 0000 0000" />
                         <label forhtml="exp-date" className="pay6">Exp. date</label>
                         <input id="exp-date" className="pay7" type="tel" inputMode="numeric" maxLength="5" placeholder="05/24" />
                         <label forhtml="cvc" className="pay8">CVC</label>
@@ -67,7 +94,7 @@ const Payment = () => {
                         <button className="pay10" type="submit">Continue</button>
                     </form>
                     : activeTicketState === "reserve"
-                        ? <form className="credit-card-payment-container" onSubmit={(e) => onClickSubmitButton(e, 'reserve')}>
+                        ? <form method="POST" className="credit-card-payment-container" onSubmit={(e) => onClickSubmitButton(e, 'reserve')}>
                             <div className="pay1">Enter your personal details</div>
                             <label forhtml="name" className="pay2">Name</label>
                             <input id="name" className="pay3" type="text" placeholder="Enter your name" />
