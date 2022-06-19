@@ -5,4 +5,84 @@
     border: 1px solid black;
     border-radius: var(--radius);
     background-color: white;
+    line-height: 2em;
+}
+
+.review-order-title,
+.personal-information-title,
+.ticket-information-title,
+.delivery-information-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.review-order,
+.personal-information,
+.ticket-information,
+.delivery-information-container {
+    margin-bottom: 1vh;
+}
+
+.personal-information-name-container,
+.personal-information-credit-card-container,
+.personal-information-phone-container,
+.personal-information-email-container,
+.ticket-info-event-container,
+.ticket-info-hall-container,
+.ticket-info-ticket-type-container,
+.ticket-info-seat-container,
+.delivery-information-container {
+    display: flex;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.grand-total-sum {
+    margin: 1.5vh 0;
+    border-top: 1px solid black;
+    padding-top: 4px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.person-information-name-header,
+.personal-information-credit-card-header,
+.personal-information-phone-header,
+.personal-information-email-header,
+.ticket-info-event-header,
+.ticket-info-hall-header,
+.ticket-info-ticket-type-header,
+.ticket-info-seat-header,
+.delivery-information-header {
+    flex-basis: 25%;
+}
+
+.finish-buttons {
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.finish-back, .finish-continue {
+    border: 1px solid black;
+    border-radius: var(--radius);
+    padding: 1.5vh 2vh;
+    font-size: 1.1rem;
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.finish-back:hover {
+    background-color: white;
+    transition: 0.3s;
+}
+
+.finish-continue {
+    background-color: rgb(244, 151, 2);
+}
+
+.finish-continue:hover {
+    background-color: orange;
+    transition: 0.3s;
 }

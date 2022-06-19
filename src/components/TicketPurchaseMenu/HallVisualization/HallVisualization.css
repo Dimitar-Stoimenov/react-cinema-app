@@ -63,6 +63,11 @@
         user-select: none !important;
         cursor: pointer !important;
     }
+
+    .visualization-continue-btn:hover {
+        background-color: orange !important;
+        transition: 0.3s;
+    }
     
     .div1 { grid-area: 3 / 2 / 4 / 3; }
     .div2 { grid-area: 3 / 3 / 4 / 4; }
