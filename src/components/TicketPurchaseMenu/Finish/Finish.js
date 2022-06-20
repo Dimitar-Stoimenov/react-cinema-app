@@ -23,6 +23,10 @@ const Finish = () => {
         }
     });
 
+    function clickBackButton() {
+        navigate(-1);
+    }
+
     return (
         <div className="purchase-container">
             <TicketPurchaseStage stage={stage} />
@@ -94,13 +98,19 @@ const Finish = () => {
                         ? <div className="delivery-information-content">E-ticket</div>
                         : <div className="delivery-information-content">Collect in cinema</div>}
                 </div>
-                <div className="grand-total-sum">Grand Total ${totalPrice.toFixed(2)}</div>
+                <div className="grand-total-sum">{"Grand Total $" + totalPrice.toFixed(2)}</div>
                 <div className="terms-and-conditions">
-                    <input type="checkbox" id="terms" />
-                    <label htmlFor="terms">I have read and agree to the General Terms and Conditions</label>
+                    <div>
+                        <input type="checkbox" id="confirm" />
+                        <label htmlFor="confirm">I confirm the order details.</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="terms" />
+                        <label htmlFor="terms">I have read and agree to the General Terms and Conditions.</label>
+                    </div>
                 </div>
                 <div className="finish-buttons">
-                    <button className="finish-back">Back</button>
+                    <button className="finish-back" onClick={clickBackButton}>Back</button>
                     <button className="finish-continue">Continue</button>
                 </div>
             </div>

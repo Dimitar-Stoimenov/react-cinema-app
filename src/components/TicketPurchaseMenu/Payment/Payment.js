@@ -32,7 +32,7 @@ const Payment = () => {
             const { name, ccn, "exp-date": expDate, cvc } = e.target.elements;
 
             if (ccn.value.length < 16) {
-                return alert('Please enter a valid Credit card number.');
+                return alert('Please enter a valid Credit Card number.');
             } else if (Number(cvc.value) < 0 || Number(cvc.value > 999) || isNaN(Number(cvc.value)) || !Number.isInteger(Number(cvc.value)) || cvc.value.length !== 3) {
                 return alert('Please enter a valid CVC.');
             } else if (name.value.length < 3) {
@@ -42,7 +42,7 @@ const Payment = () => {
             }
 
             let last4digits = ccn.value.slice(12);
-            let newCreditCardNum = '*'.repeat(8) + last4digits;
+            let newCreditCardNum = '*'.repeat(12) + last4digits;
             let nameString = name.value;
             let expDateString = expDate.value;
             let emailString = 'n/a';

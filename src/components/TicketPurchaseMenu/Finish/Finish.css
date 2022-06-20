@@ -55,7 +55,11 @@
 .ticket-info-ticket-type-header,
 .ticket-info-seat-header,
 .delivery-information-header {
-    flex-basis: 25%;
+    flex-basis: 30%;
+}
+
+.ticket-info-event-content {
+    flex-basis: 70%;
 }
 
 .finish-buttons {
