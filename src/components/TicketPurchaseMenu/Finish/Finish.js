@@ -1,14 +1,28 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 
 import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
 import { parseDate, parseHour } from '../../../utils/utils';
 
 import "./Finish.css";
+import "./Loading.css";
 
 const Finish = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { projectionId } = useParams();
+
+    const [confirmBoxIsChecked, setConfirmBoxIsChecked] = useState(false);
+    const [termsBoxIsChecked, setTermsBoxIsChecked] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleConfirmBox = () => {
+        setConfirmBoxIsChecked(!confirmBoxIsChecked);
+    };
+
+    const handletermsBox = () => {
+        setTermsBoxIsChecked(!termsBoxIsChecked);
+    };
 
     const stage = 4;
     const { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, ccn, name, expDate, email, phone } = location.state;
@@ -83,12 +97,10 @@ const Finish = () => {
                             : null}
                     </div>
                     {seatsInfo.map((rowInfo, i) =>
-                        <>
-                            <div className="ticket-info-seat-container">
-                                <div className="ticket-info-seat-header">Seat Info</div>
-                                <div className="ticket-info-seat-content" key={i}>{rowInfo}</div>
-                            </div>
-                        </>
+                        <div key={i} className="ticket-info-seat-container">
+                            <div className="ticket-info-seat-header">Seat Info</div>
+                            <div className="ticket-info-seat-content">{rowInfo}</div>
+                        </div>
                     )}
                 </div>
                 <div className="delivery-information-title">Delivery information</div>
@@ -101,17 +113,34 @@ const Finish = () => {
                 <div className="grand-total-sum">{"Grand Total $" + totalPrice.toFixed(2)}</div>
                 <div className="terms-and-conditions">
                     <div>
-                        <input type="checkbox" id="confirm" />
+                        <input
+                            type="checkbox"
+                            id="confirm"
+                            checked={confirmBoxIsChecked}
+                            onChange={handleConfirmBox}
+                        />
                         <label htmlFor="confirm">I confirm the order details.</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="terms" />
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            checked={termsBoxIsChecked}
+                            onChange={handletermsBox}
+                        />
                         <label htmlFor="terms">I have read and agree to the General Terms and Conditions.</label>
                     </div>
                 </div>
                 <div className="finish-buttons">
                     <button className="finish-back" onClick={clickBackButton}>Back</button>
-                    <button className="finish-continue">Continue</button>
+                    <button className="finish-continue" onClick={() => setIsLoading(true)}>Continue</button>
+                </div>
+            </div>
+            <div className={isLoading ? "overlay-loader show-loader" : "overlay-loader"}></div>
+            <div className="finish-wrapper">
+                <div className={isLoading ? "spanner-loader show-loader" : "spanner-loader"}>
+                    <div className="finish-loader"></div>
+                    <p>Processing payment, please be patient.</p>
                 </div>
             </div>
         </div>

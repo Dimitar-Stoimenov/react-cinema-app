@@ -23,7 +23,7 @@ const Footer = () => {
                     <li>email: info@cinebear.com</li>
                 </ul>
                 <div className="footer-section">
-                    <ul className="wrapper">
+                    <ul className="footer-wrapper">
                         <a href="https://facebook.com/bear-cinema" target="_blank" rel="noreferrer" className="icon facebook">
                             <span className="tooltip">Facebook</span>
                             <span><FaFacebookF className="fab fa-facebook-f" /></span>

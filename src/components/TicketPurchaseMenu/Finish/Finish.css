@@ -56,10 +56,13 @@
 .ticket-info-seat-header,
 .delivery-information-header {
     flex-basis: 30%;
+    /* media */
 }
 
-.ticket-info-event-content {
+.ticket-info-event-content,
+.person-information-name-content {
     flex-basis: 70%;
+    /* media */
 }
 
 .finish-buttons {
@@ -100,5 +103,23 @@
 @media only screen and (max-width: 1550px) {
     .finish-container {
         margin: 7vh auto 0;
+        line-height: 1.3em;
+    }
+
+    .person-information-name-header,
+    .personal-information-credit-card-header,
+    .personal-information-phone-header,
+    .personal-information-email-header,
+    .ticket-info-event-header,
+    .ticket-info-hall-header,
+    .ticket-info-ticket-type-header,
+    .ticket-info-seat-header,
+    .delivery-information-header {
+        flex-basis: 38%;
+    }
+
+    .ticket-info-event-content,
+    .person-information-name-content {
+        flex-basis: 62%;
     }
 }
