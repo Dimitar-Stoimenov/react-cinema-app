@@ -2,6 +2,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
+import { create } from '../../../services/ticketService';
+import * as projectionService from '../../../services/projectionService';
 import { parseDate, parseHour } from '../../../utils/utils';
 
 import "./Finish.css";
@@ -39,6 +41,48 @@ const Finish = () => {
 
     function clickBackButton() {
         navigate(-1);
+    }
+
+    async function checkIfSeatsAreAvailable() {
+        let check = true;
+
+        projectionService.getProjectionById(projectionId)
+            .then(result => {
+                let selectedRowsArray = Object.entries(selectedSeatsObj).filter(x => x[1].length !== 0);
+                selectedRowsArray.forEach(([row, seatsArr]) => {
+                    seatsArr.forEach(seat => {
+                        if (result.occupiedSeats[row].includes(seat)) {
+                            check = false;
+                        }
+                    })
+                })
+            })
+            .then(x => {
+                return check;
+            })
+            .catch(error => alert(error.message));
+    }
+
+    function addTicketAndSeatsToProjection({ _id, occupiedSeats }) {
+        projectionService.addTicketsAndSeats(_id, occupiedSeats, projectionId);
+    }
+
+    function clickContinueButton() {
+        if (termsBoxIsChecked && confirmBoxIsChecked) {
+            setIsLoading(true);
+            if (checkIfSeatsAreAvailable()) {
+                console.log('lets go');
+                create(selectedSeatsObj, projectionId)
+                    .then(ticketData => addTicketAndSeatsToProjection(ticketData))
+                // .catch(error => alert(error.message));
+            }
+        } else if (!termsBoxIsChecked && confirmBoxIsChecked) {
+            return alert('Please agree to the terms of service in order to continue.');
+        } else if (termsBoxIsChecked && !confirmBoxIsChecked) {
+            return alert('Please confirm the order details to continue.');
+        } else {
+            return alert('Please confirm the details and agree to the general terms and conditions in order to continue.')
+        }
     }
 
     return (
@@ -133,7 +177,7 @@ const Finish = () => {
                 </div>
                 <div className="finish-buttons">
                     <button className="finish-back" onClick={clickBackButton}>Back</button>
-                    <button className="finish-continue" onClick={() => setIsLoading(true)}>Continue</button>
+                    <button className="finish-continue" onClick={clickContinueButton}>Continue</button>
                 </div>
             </div>
             <div className={isLoading ? "overlay-loader show-loader" : "overlay-loader"}></div>

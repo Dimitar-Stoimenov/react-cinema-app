@@ -15,7 +15,7 @@ export async function create(movieId, hallId, date, hour, regularPrice, students
         body: JSON.stringify({ movieId, hallId, date, hour, regularPrice, studentsPrice }),
     });
 
-    return res;
+    return await errorCheck(res);
 }
 
 export async function getProjections(date) {
@@ -32,6 +32,19 @@ export async function getProjectionsByMovieId(movieId) {
 
 export async function getProjectionById(projectionId) {
     let res = await fetch(`${url}/id/${projectionId}`);
+
+    return await errorCheck(res);
+}
+
+export async function addTicketsAndSeats(ticketId, seatsObj, projectionId) {
+    let res = await fetch(`${url}/add-ticket`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": 'application/json',
+            // 'X-Authorization': token,
+        },
+        body: JSON.stringify({ ticketId, seatsObj, projectionId }),
+    });
 
     return await errorCheck(res);
 }
