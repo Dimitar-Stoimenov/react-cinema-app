@@ -92,7 +92,7 @@
 }
 
 .finish-continue {
-    background-color: rgb(244, 151, 2);
+    background-color: var(--clr-main-theme-darker);
 }
 
 .finish-continue:hover {

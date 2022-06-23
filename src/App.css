@@ -9,6 +9,7 @@
   --clr-gray200: #cfd8dc;
   --clr-gray300: #afbec4;
   --clr-main-theme: orange;
+  --clr-main-theme-darker: rgb(244, 151, 2);
 
   /* border radius */
   --radius: 0.2rem;

@@ -57,7 +57,7 @@
         border: 1px solid black;
         border-radius: var(--radius);
         padding: 1.5vh 2vh !important;
-        background-color: rgb(244, 151, 2) !important;
+        background-color: var(--clr-main-theme-darker) !important;
         font-size: 1.1rem !important;
         font-weight: bold !important;
         user-select: none !important;
