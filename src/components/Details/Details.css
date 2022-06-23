@@ -34,7 +34,7 @@
     background-color: var(--clr-main-theme);
     font-size: 2.7vh;
     border-radius: 0.4rem;
-    padding: 0 6px;
+    padding: 0 8px;
     cursor: pointer;
     user-select: none;
     opacity: 0.8;

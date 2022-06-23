@@ -47,7 +47,7 @@
     }
     
     .selected {
-        background-color: var(--clr-main-theme) !important;
+        background-color: orange !important;
     }
 
     .visualization-continue-btn {
