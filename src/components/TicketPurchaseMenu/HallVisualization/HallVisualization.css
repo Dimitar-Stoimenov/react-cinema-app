@@ -47,7 +47,7 @@
     }
     
     .selected {
-        background-color: orange !important;
+        background-color: var(--clr-main-theme) !important;
     }
 
     .visualization-continue-btn {
@@ -65,7 +65,7 @@
     }
 
     .visualization-continue-btn:hover {
-        background-color: orange !important;
+        background-color: var(--clr-main-theme) !important;
         transition: 0.3s;
     }
     

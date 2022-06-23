@@ -96,7 +96,7 @@
 }
 
 .finish-continue:hover {
-    background-color: orange;
+    background-color: var(--clr-main-theme);
     transition: 0.3s;
 }
 

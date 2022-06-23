@@ -23,7 +23,7 @@
     width: 27vh;
     cursor: pointer;
     background-color: white;
-    border: 1px solid orange;
+    border: 1px solid var(--clr-main-theme);
     border-radius: 0.9rem;
     padding: 4.2vh 7.5vh;
     margin: 0 2vh;
@@ -32,7 +32,7 @@
 }
 
 .ticket-btn:hover {
-    background: orange;
+    background: var(--clr-main-theme);
     transition: 0.3s ease-in;
 }
 
@@ -48,7 +48,7 @@
     font-size: 2em;
     border: 1px solid black;
     border-radius: 50%;
-    background: orange;
+    background: var(--clr-main-theme);
 }
 
 .activated-tick {
@@ -56,7 +56,7 @@
 }
 
 .activated-ticket {
-    background-color: orange;
+    background-color: var(--clr-main-theme);
 }
 
 .ticket-or {
@@ -227,7 +227,7 @@
 }
 
 .purchase-continue-btn:hover {
-    background-color: orange;
+    background-color: var(--clr-main-theme);
     transition: 0.3s;
 }
 

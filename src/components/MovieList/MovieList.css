@@ -12,7 +12,7 @@
     margin: 0 auto;
     width: var(--content-width);
     overflow: hidden;
-    background-color: orange;
+    background-color: var(--clr-main-theme);
     display: flex;
     flex-direction: row;
     justify-content: center;

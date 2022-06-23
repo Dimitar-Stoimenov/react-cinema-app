@@ -55,7 +55,7 @@
 
 .btn-7:hover {
     background: transparent;
-    color: orange;
+    color: var(--clr-main-theme);
     font-weight: bold;
 }
 

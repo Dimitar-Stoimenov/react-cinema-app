@@ -31,7 +31,7 @@
 
 .details-tickets-button {
     color: black;
-    background-color: orange;
+    background-color: var(--clr-main-theme);
     font-size: 2.7vh;
     border-radius: 0.4rem;
     padding: 0 6px;
