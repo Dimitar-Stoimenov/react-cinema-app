@@ -15,6 +15,7 @@ import CreateSuccess from './components/Create/CreateSuccess/CreateSuccess';
 import SeatSelection from './components/TicketPurchaseMenu/SeatSelection/SeatSelection';
 import Payment from './components/TicketPurchaseMenu/Payment/Payment';
 import Finish from './components/TicketPurchaseMenu/Finish/Finish';
+import Declined from './components/TicketPurchaseMenu/Declined/Declined';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
         <Route path="/projections/id/:projectionId/seat-selection" element={<SeatSelection />} />
         <Route path="/projections/id/:projectionId/payment" element={<Payment />} />
         <Route path="/projections/id/:projectionId/finish" element={<Finish />} />
+        <Route path="/projections/id/:projectionId/declined" element={<Declined />} />
       </Routes>
 
       <Footer />
