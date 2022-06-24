@@ -71,10 +71,9 @@ const Finish = () => {
         if (termsBoxIsChecked && confirmBoxIsChecked) {
             setIsLoading(true);
             if (checkIfSeatsAreAvailable()) {
-                console.log('lets go');
                 create(selectedSeatsObj, projectionId)
                     .then(ticketData => addTicketAndSeatsToProjection(ticketData))
-                // .catch(error => alert(error.message));
+                    // .catch(error => alert(error.message));
             }
         } else if (!termsBoxIsChecked && confirmBoxIsChecked) {
             return alert('Please agree to the terms of service in order to continue.');
