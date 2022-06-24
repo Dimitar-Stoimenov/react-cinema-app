@@ -43,10 +43,6 @@
 .details-tickets-button:hover {
     opacity: 0.9;
     color: rgb(38, 38, 38);
-    /* background-color: rgb(220, 220, 220);
-    color: rgba(0, 0, 0, 0.85);
-    transition: 0.3s;
-    box-shadow: 1px 1px 5px 0px rgba(253, 253, 253, 0.85); */
 }
 
 .details-movie-wrapper {
