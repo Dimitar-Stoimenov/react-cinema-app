@@ -1,0 +1,23 @@
+.success-icon {
+    font-size: 12em;
+    margin-top: 8%;
+    height: 70%;
+    color: rgb(5, 170, 5);
+}
+
+.success-p {
+    line-height: 1.2;
+    margin-top: 1.5vh;
+    margin-bottom: 10vh;
+    font-size: 1.2em;
+}
+
+.success-text {
+    position: absolute;
+    bottom: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1.1;
+}

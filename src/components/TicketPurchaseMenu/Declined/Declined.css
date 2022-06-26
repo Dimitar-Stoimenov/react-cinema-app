@@ -1,0 +1,10 @@
+.declined-icon {
+    font-size: 12em;
+    margin-top: 8%;
+    height: 70%;
+    color: red;
+}
+
+.declined-p {
+    line-height: 1.2;
+}
