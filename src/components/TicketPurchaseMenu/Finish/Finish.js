@@ -63,7 +63,7 @@ const Finish = () => {
                 check = false;
                 return error;
             });
-            
+
         return check;
     }
 
@@ -89,7 +89,7 @@ const Finish = () => {
                 } else {
                     navigate(`/projections/id/${projectionId}/declined`);
                 }
-            }, 0);
+            }, 4000);
         } else if (!termsBoxIsChecked && confirmBoxIsChecked) {
             return alert('Please agree to the terms of service in order to continue.');
         } else if (termsBoxIsChecked && !confirmBoxIsChecked) {
