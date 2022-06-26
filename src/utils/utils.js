@@ -1,5 +1,9 @@
 export async function errorCheck(response) {
     try {
+        if (response.status === 402) {
+            return '402 err';
+        }
+
         if (response.ok === false) {
             const error = await response.json();
             throw new Error(error.message);
