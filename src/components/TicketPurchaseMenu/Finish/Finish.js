@@ -27,7 +27,7 @@ const Finish = () => {
     };
 
     const stage = 4;
-    const { projection, totalTickets, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, ccn, name, expDate, email, phone } = location.state;
+    const { projection, activeTicketState, totalPrice, regularTickets, studentTickets, selectedSeatsObj, ccn, name, email, phone } = location.state;
     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
     let seatsInfo = [];
