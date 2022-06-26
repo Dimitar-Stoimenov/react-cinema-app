@@ -46,7 +46,7 @@ const Finish = () => {
     async function checkIfSeatsAreAvailable() {
         let check = true;
 
-        projectionService.getProjectionById(projectionId)
+        await projectionService.getProjectionById(projectionId)
             .then(result => {
                 let selectedRowsArray = Object.entries(selectedSeatsObj).filter(x => x[1].length !== 0);
                 selectedRowsArray.forEach(([row, seatsArr]) => {
@@ -56,25 +56,40 @@ const Finish = () => {
                         }
                     })
                 })
+                return result;
             })
-            .then(x => {
-                return check;
-            })
-            .catch(error => alert(error.message));
+            .catch(error => {
+                alert(error.message);
+                check = false;
+                return error;
+            });
+            
+        return check;
     }
 
-    function addTicketAndSeatsToProjection({ _id, occupiedSeats }) {
-        projectionService.addTicketsAndSeats(_id, occupiedSeats, projectionId);
+    async function addTicketAndSeatsToProjection({ _id, occupiedSeats }) {
+        let result = await projectionService.addTicketsAndSeats(_id, occupiedSeats, projectionId);
+
+        if (result.message === "Some seat is already taken!") {
+            navigate(`/projections/id/${projectionId}/declined`);
+        } else {
+            navigate(`/projections/id/${projectionId}/success`);
+        }
     }
 
-    function clickContinueButton() {
+    async function clickContinueButton() {
         if (termsBoxIsChecked && confirmBoxIsChecked) {
             setIsLoading(true);
-            if (checkIfSeatsAreAvailable()) {
-                create(selectedSeatsObj, projectionId)
-                    .then(ticketData => addTicketAndSeatsToProjection(ticketData))
-                    // .catch(error => alert(error.message));
-            }
+            const seatCheck = await checkIfSeatsAreAvailable();
+            setTimeout(() => {
+                if (seatCheck) {
+                    create(selectedSeatsObj, projectionId)
+                        .then(ticketData => addTicketAndSeatsToProjection(ticketData))
+                        .catch(error => alert(error.message));
+                } else {
+                    navigate(`/projections/id/${projectionId}/declined`);
+                }
+            }, 0);
         } else if (!termsBoxIsChecked && confirmBoxIsChecked) {
             return alert('Please agree to the terms of service in order to continue.');
         } else if (termsBoxIsChecked && !confirmBoxIsChecked) {

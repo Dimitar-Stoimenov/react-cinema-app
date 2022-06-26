@@ -1,7 +1,8 @@
 export async function errorCheck(response) {
     try {
         if (response.status === 402) {
-            return '402 err';
+            const data = await response.json();
+            return data;
         }
 
         if (response.ok === false) {
