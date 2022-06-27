@@ -2,8 +2,8 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 
 import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
-import { create } from '../../../services/ticketService';
 import * as projectionService from '../../../services/projectionService';
+import { create } from '../../../services/ticketService';
 import { parseDate, parseHour } from '../../../utils/utils';
 
 import "./Finish.css";
