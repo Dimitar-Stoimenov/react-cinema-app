@@ -1,5 +1,5 @@
-import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import TicketPurchaseStage from "../TicketPurchaseStage/TicketPurchaseStage";
 import * as projectionService from '../../../services/projectionService';
