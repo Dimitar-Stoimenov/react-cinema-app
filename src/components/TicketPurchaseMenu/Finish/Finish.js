@@ -10,8 +10,8 @@ import "./Finish.css";
 import "./Loading.css";
 
 const Finish = () => {
-    const location = useLocation();
     const navigate = useNavigate();
+    const location = useLocation();
     const { projectionId } = useParams();
 
     const [isLoading, setIsLoading] = useState(false);
