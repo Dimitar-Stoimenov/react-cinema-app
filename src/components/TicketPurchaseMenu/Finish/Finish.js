@@ -15,8 +15,8 @@ const Finish = () => {
     const { projectionId } = useParams();
 
     const [isLoading, setIsLoading] = useState(false);
-    const [confirmBoxIsChecked, setConfirmBoxIsChecked] = useState(false);
     const [termsBoxIsChecked, setTermsBoxIsChecked] = useState(false);
+    const [confirmBoxIsChecked, setConfirmBoxIsChecked] = useState(false);
 
     const handleConfirmBox = () => {
         setConfirmBoxIsChecked(!confirmBoxIsChecked);
