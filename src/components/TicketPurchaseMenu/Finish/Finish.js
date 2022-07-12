@@ -6,8 +6,8 @@ import * as projectionService from '../../../services/projectionService';
 import { create } from '../../../services/ticketService';
 import { parseDate, parseHour } from '../../../utils/utils';
 
-import "./Finish.css";
 import "./Loading.css";
+import "./Finish.css";
 
 const Finish = () => {
     const navigate = useNavigate();
